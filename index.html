@@ -2025,7 +2025,8 @@ body::before{content:"";position:fixed;inset:0;z-index:9997;pointer-events:none;
 .projects-orbit-two{width:500px;height:500px;left:-300px;bottom:-260px;border-color:rgba(239,68,68,.15);animation:projectOrbit 20s linear infinite reverse;}
 @keyframes projectOrbit{to{transform:rotate(360deg)}}
 .projects-kicker{font-size:10px;font-weight:900;letter-spacing:.24em;color:#fb4b55;margin-bottom:2px;text-shadow:0 0 14px rgba(239,68,68,.55)}
-.projects-title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}.projects-title{margin:0;font-size:clamp(3rem,7vw,5rem);line-height:.9;font-weight:1000;font-style:italic;letter-spacing:-.055em;color:#f1f5f9;text-shadow:0 0 24px rgba(239,68,68,.16)}
+.projects-title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}.projects-title{margin:0;font-size:2.25rem;line-height:.9;font-weight:1000;font-style:italic;letter-spacing:-.055em;color:#f1f5f9;text-shadow:0 0 24px rgba(239,68,68,.16)}
+@media (min-width:640px){.projects-title{font-size:3rem}}
 .projects-subtitle{margin-top:10px;color:#718096;font-size:11px;line-height:1.55}.projects-counter-box{min-width:145px;padding:10px 13px;border:1px solid rgba(59,130,246,.42);border-radius:10px;background:linear-gradient(135deg,rgba(4,12,28,.82),rgba(12,19,40,.55));box-shadow:0 0 24px rgba(37,99,235,.13),inset 0 0 20px rgba(59,130,246,.05);position:relative;overflow:hidden}.projects-counter-box:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.08) 50%,transparent 75%);transform:translateX(-100%);animation:projectScan 4s ease-in-out infinite}.projects-counter-box span{display:block;font-size:7px;letter-spacing:.18em;color:#7c8aa5}.projects-counter-box strong{display:block;font-size:28px;line-height:1;color:#ff3e46;margin-top:2px}.projects-counter-box i{display:block;width:70px;height:1px;background:linear-gradient(90deg,#ef4444,#3b82f6);margin:5px 0}.projects-counter-box b{font-size:7px;letter-spacing:.12em;color:#4b78b8}@keyframes projectScan{50%,100%{transform:translateX(100%)}}
 .projects-filter-row{margin:24px 0 28px;display:flex;justify-content:center}.projects-filters{display:flex;gap:9px;padding:5px;border-radius:999px;border:1px solid rgba(71,85,105,.45);background:rgba(2,6,23,.62);backdrop-filter:blur(14px);box-shadow:0 0 30px rgba(15,23,42,.45)}.projects-filter{min-width:78px;border:1px solid rgba(51,65,85,.8)!important;background:rgba(2,6,23,.45)!important;color:#a8b2c4!important;padding:8px 18px!important;border-radius:999px!important;font-size:9px!important;letter-spacing:.12em!important;transition:.3s ease!important}.projects-filter:hover,.projects-filter.active{color:white!important;border-color:#ef4444!important;background:linear-gradient(135deg,#ef4444,#9f1239)!important;box-shadow:0 0 18px rgba(239,68,68,.3),inset 0 0 14px rgba(255,255,255,.08)!important;transform:translateY(-1px)}
 .projects-carousel-shell{position:relative}.projects-carousel{overflow:hidden;padding:12px 42px 20px}.projects-track{display:flex;gap:28px;transition:transform .7s cubic-bezier(.16,1,.3,1);will-change:transform}.project-slide{position:relative;flex:0 0 calc((100% - 56px)/3);overflow:hidden;border-radius:20px;border:1px solid rgba(148,163,184,.18);background:linear-gradient(180deg,rgba(8,13,29,.92),rgba(5,9,22,.98));box-shadow:0 18px 45px rgba(0,0,0,.42),inset 0 0 30px rgba(255,255,255,.018);transition:transform .45s ease,box-shadow .45s ease,border-color .45s ease;min-width:0}.project-slide:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.06) 50%,transparent 80%);transform:translateX(-120%);transition:transform .7s ease}.project-slide:hover:before{transform:translateX(120%)}.project-slide:hover{transform:translateY(-8px) scale(1.015);box-shadow:0 25px 65px rgba(0,0,0,.6),0 0 30px rgba(59,130,246,.1)}
@@ -2534,11 +2535,378 @@ body::before{content:"";position:fixed;inset:0;z-index:9997;pointer-events:none;
 }
 </style>
 
+<style>
+
+/* =========================================================
+   SPIDER-MAN EDUCATION / ACADEMIC TIMELINE UPGRADE
+   ========================================================= */
+.spider-education{
+    --spider-red:#ef233c;
+    --spider-red2:#b91c1c;
+    --spider-blue:#1687ff;
+    --spider-blue2:#0047ab;
+    --spider-white:#eaf3ff;
+    --edu-bg:#030711;
+    min-height:820px;
+    background:
+        radial-gradient(circle at 50% 15%,rgba(24,73,140,.16),transparent 34%),
+        radial-gradient(circle at 12% 75%,rgba(239,35,60,.12),transparent 30%),
+        radial-gradient(circle at 88% 35%,rgba(22,135,255,.10),transparent 28%),
+        linear-gradient(180deg,#020611 0%,#050914 48%,#02040a 100%);
+    isolation:isolate;
+}
+.spider-education::before{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.24;
+    background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:54px 54px;
+    mask-image:radial-gradient(circle at center,#000 25%,transparent 82%);
+}
+.edu-city-glow{position:absolute;width:420px;height:420px;border-radius:50%;filter:blur(90px);opacity:.12;pointer-events:none;animation:eduGlowFloat 9s ease-in-out infinite;}
+.edu-glow-red{left:-210px;top:38%;background:var(--spider-red);}
+.edu-glow-blue{right:-220px;top:18%;background:var(--spider-blue);animation-delay:-4s;}
+@keyframes eduGlowFloat{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(35px,-28px,0) scale(1.1)}}
+.edu-scanline{position:absolute;inset:0;pointer-events:none;opacity:.045;background:repeating-linear-gradient(0deg,transparent 0 4px,#fff 5px 6px);mix-blend-mode:screen;animation:eduScan 8s linear infinite;}
+@keyframes eduScan{from{transform:translateY(-15px)}to{transform:translateY(15px)}}
+.education-web-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;opacity:.62;}
+.edu-web-corner{position:absolute;width:360px;height:360px;opacity:.18;pointer-events:none;z-index:1;border-radius:50%;background:repeating-radial-gradient(circle at 0 0,transparent 0 31px,rgba(255,255,255,.7) 32px 33px,transparent 34px 61px);}
+.edu-web-corner::after{content:"";position:absolute;inset:0;background:repeating-conic-gradient(from 0deg at 0 0,rgba(239,35,60,.7) 0deg 1deg,transparent 1deg 15deg);}
+.edu-web-corner-left{left:-30px;top:-40px;transform:rotate(8deg);}
+.edu-web-corner-right{right:-35px;bottom:-70px;transform:rotate(180deg);opacity:.12;}
+.edu-heading{position:relative;z-index:3;margin-bottom:72px;}
+.edu-kicker{display:flex;align-items:center;justify-content:center;gap:11px;color:#9db3ce;font-size:10px;font-weight:900;letter-spacing:.32em;text-transform:uppercase;}
+.edu-kicker-dot{width:5px;height:5px;border-radius:50%;background:var(--spider-red);box-shadow:0 0 10px var(--spider-red);animation:eduBlink 1.5s ease-in-out infinite;}
+@keyframes eduBlink{50%{opacity:.25;transform:scale(.65)}}
+.edu-title{margin-top:10px;font-size:clamp(2.8rem,7vw,5.5rem);line-height:.92;font-weight:1000;letter-spacing:-.06em;color:#f5f8ff;text-shadow:0 0 28px rgba(255,255,255,.08);}
+.edu-title span{background:linear-gradient(100deg,var(--spider-red),#ff566a 25%,#fff 48%,#61a8ff 68%,var(--spider-blue));background-size:240% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:eduTitleShift 5s linear infinite;}
+@keyframes eduTitleShift{to{background-position:240% center}}
+.edu-subtitle{margin-top:15px;color:#7890ad;font-size:13px;letter-spacing:.08em;}
+.edu-title-web{height:18px;width:240px;margin:17px auto 0;position:relative;overflow:hidden;opacity:.8;}
+.edu-title-web::before{content:"";position:absolute;left:0;right:0;top:8px;height:1px;background:linear-gradient(90deg,transparent,var(--spider-red),#fff,var(--spider-blue),transparent);box-shadow:0 0 14px rgba(22,135,255,.5);}
+.edu-title-web i{position:absolute;top:2px;width:7px;height:7px;border:1px solid #fff;border-radius:50%;animation:eduDotTravel 2.8s linear infinite;}
+.edu-title-web i:nth-child(1){left:8%;animation-delay:0s}.edu-title-web i:nth-child(2){left:28%;animation-delay:.5s}.edu-title-web i:nth-child(3){left:48%;animation-delay:1s}.edu-title-web i:nth-child(4){left:68%;animation-delay:1.5s}.edu-title-web i:nth-child(5){left:88%;animation-delay:2s}
+@keyframes eduDotTravel{0%,100%{transform:translateY(0) scale(.7);opacity:.25}50%{transform:translateY(8px) scale(1.2);opacity:1}}
+.edu-timeline-wrap{position:relative;max-width:920px;margin:0 auto;padding-left:74px;z-index:3;}
+.edu-timeline-line{left:23px!important;top:8px!important;bottom:8px!important;width:3px!important;background:linear-gradient(to bottom,var(--spider-red),#ff7b89 28%,#fff 50%,#4d9dff 72%,var(--spider-blue))!important;box-shadow:0 0 10px rgba(239,35,60,.55),0 0 25px rgba(22,135,255,.35);z-index:2;}
+.edu-energy-line{position:absolute;left:17px;top:0;width:15px;height:110px;border-radius:50%;background:linear-gradient(to bottom,transparent,rgba(255,255,255,.95),transparent);filter:blur(4px);z-index:3;opacity:.75;animation:eduEnergy 3.6s linear infinite;}
+@keyframes eduEnergy{from{transform:translateY(-120px)}to{transform:translateY(calc(100% + 120px))}}
+.edu-card{position:relative!important;margin:0 0 30px!important;opacity:0;transform:translateX(-25px) translateY(20px)!important;transition:opacity .8s ease,transform .8s cubic-bezier(.16,1,.3,1)!important;}
+.edu-card.visible{opacity:1;transform:translateX(0) translateY(0)!important;}
+.edu-card:nth-of-type(2){transition-delay:.12s!important}.edu-card:nth-of-type(3){transition-delay:.24s!important}.edu-card:nth-of-type(4){transition-delay:.36s!important}
+.edu-card-inner{position:relative;overflow:hidden;padding:24px 26px 16px;border:1px solid rgba(126,160,205,.16);border-radius:20px;background:linear-gradient(135deg,rgba(9,17,33,.92),rgba(4,8,18,.78));box-shadow:0 18px 55px rgba(0,0,0,.35),inset 0 0 30px rgba(255,255,255,.018);backdrop-filter:blur(14px);transition:transform .45s cubic-bezier(.16,1,.3,1),border-color .35s ease,box-shadow .35s ease;}
+.edu-card-inner::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(239,35,60,.09),transparent 32%,transparent 64%,rgba(22,135,255,.08));pointer-events:none;}
+.edu-card-inner::after{content:"";position:absolute;top:-100%;left:-20%;width:30%;height:300%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);transform:rotate(18deg);animation:eduCardSweep 6s ease-in-out infinite;pointer-events:none;}
+@keyframes eduCardSweep{0%,58%{left:-30%;opacity:0}65%{opacity:1}82%{left:125%;opacity:0}100%{left:125%;opacity:0}}
+.edu-card:hover .edu-card-inner{transform:translateY(-7px) perspective(800px) rotateX(1.2deg);border-color:rgba(239,35,60,.48);box-shadow:0 28px 70px rgba(0,0,0,.5),0 0 28px rgba(239,35,60,.12),0 0 50px rgba(22,135,255,.08);}
+.edu-card[data-accent="blue"] .edu-card-inner{border-color:rgba(22,135,255,.17)}.edu-card[data-accent="blue"]:hover .edu-card-inner{border-color:rgba(22,135,255,.55);box-shadow:0 28px 70px rgba(0,0,0,.5),0 0 32px rgba(22,135,255,.16)}
+.edu-card[data-accent="violet"] .edu-card-inner{border-color:rgba(139,92,246,.2)}.edu-card[data-accent="violet"]:hover .edu-card-inner{border-color:rgba(139,92,246,.55);box-shadow:0 28px 70px rgba(0,0,0,.5),0 0 32px rgba(139,92,246,.16)}
+.edu-node-shell{position:absolute;left:-74px;top:20px;width:48px;height:48px;z-index:5;}
+.edu-node{position:absolute!important;left:0!important;top:0!important;width:48px!important;height:48px!important;border:3px solid #050912!important;border-radius:50%!important;background:radial-gradient(circle at 35% 30%,#fff 0 4%,#ff566a 6% 34%,#a30f20 60%,#35030a 100%)!important;box-shadow:0 0 0 2px rgba(239,35,60,.2),0 0 20px rgba(239,35,60,.75),0 0 45px rgba(239,35,60,.28)!important;display:grid!important;place-items:center;transition:transform .4s ease,box-shadow .4s ease;}
+.edu-node span{font-size:9px;font-weight:1000;color:white;letter-spacing:.08em;text-shadow:0 0 8px #000;}
+.edu-card[data-accent="blue"] .edu-node{background:radial-gradient(circle at 35% 30%,#fff 0 4%,#58adff 6% 34%,#0758ad 60%,#031733 100%)!important;box-shadow:0 0 0 2px rgba(22,135,255,.2),0 0 20px rgba(22,135,255,.8),0 0 45px rgba(22,135,255,.28)!important;}
+.edu-card[data-accent="violet"] .edu-node{background:radial-gradient(circle at 35% 30%,#fff 0 4%,#a78bfa 6% 34%,#5b21b6 60%,#17052f 100%)!important;box-shadow:0 0 0 2px rgba(139,92,246,.2),0 0 20px rgba(139,92,246,.8),0 0 45px rgba(139,92,246,.28)!important;}
+.edu-card:hover .edu-node{transform:scale(1.14) rotate(8deg);}
+.edu-node-web{position:absolute;inset:-14px;border-radius:50%;border:1px dashed rgba(255,255,255,.24);animation:eduNodeOrbit 7s linear infinite;pointer-events:none;}
+.edu-node-web::before,.edu-node-web::after{content:"";position:absolute;inset:6px;border:1px solid rgba(255,255,255,.12);border-radius:50%;}.edu-node-web::after{inset:0;border-color:transparent rgba(239,35,60,.4) transparent rgba(22,135,255,.4);transform:rotate(45deg);}
+@keyframes eduNodeOrbit{to{transform:rotate(360deg)}}
+.edu-card-top{display:flex;align-items:center;justify-content:space-between;gap:15px;position:relative;z-index:2;}
+.edu-year{font-size:13px;font-weight:1000;letter-spacing:.18em;color:#ff6475;text-shadow:0 0 12px rgba(239,35,60,.45);}.edu-card[data-accent="blue"] .edu-year{color:#69b3ff;text-shadow:0 0 12px rgba(22,135,255,.45)}.edu-card[data-accent="violet"] .edu-year{color:#b79cff;text-shadow:0 0 12px rgba(139,92,246,.45)}
+.edu-status{font-size:8px;font-weight:900;letter-spacing:.18em;color:#657995;display:flex;align-items:center;gap:6px;white-space:nowrap;}.edu-status b{width:5px;height:5px;border-radius:50%;background:#ff4357;box-shadow:0 0 8px #ff4357;animation:eduBlink 1.2s infinite;}.edu-card[data-accent="blue"] .edu-status b{background:#3b9dff;box-shadow:0 0 8px #3b9dff}.edu-card[data-accent="violet"] .edu-status b{background:#a78bfa;box-shadow:0 0 8px #a78bfa}
+.edu-content-grid{display:grid;grid-template-columns:1fr 74px;gap:18px;align-items:center;position:relative;z-index:2;}
+.edu-label{margin-top:14px;color:#536982;font-size:8px;font-weight:900;letter-spacing:.2em;}.edu-content-grid h3{margin-top:5px;font-size:clamp(1.45rem,3vw,2rem);line-height:1.05;font-weight:950;letter-spacing:-.035em;color:#f2f6ff;}.edu-content-grid p{margin-top:10px;max-width:690px;color:#91a4bc;font-size:14px;line-height:1.75;}
+.edu-side-icon{width:66px;height:66px;border-radius:18px;display:grid;place-items:center;border:1px solid rgba(239,35,60,.28);background:radial-gradient(circle,rgba(239,35,60,.18),rgba(2,6,17,.3));box-shadow:inset 0 0 24px rgba(239,35,60,.07),0 0 24px rgba(239,35,60,.08);font-weight:1000;color:#ff6071;text-shadow:0 0 15px rgba(239,35,60,.7);position:relative;overflow:hidden;}.edu-side-icon::before{content:"";position:absolute;inset:8px;border:1px dashed rgba(255,255,255,.16);border-radius:14px;transform:rotate(45deg);}.edu-card[data-accent="blue"] .edu-side-icon{border-color:rgba(22,135,255,.32);color:#65b0ff;background:radial-gradient(circle,rgba(22,135,255,.18),rgba(2,6,17,.3));}.edu-card[data-accent="violet"] .edu-side-icon{border-color:rgba(139,92,246,.32);color:#b79cff;background:radial-gradient(circle,rgba(139,92,246,.18),rgba(2,6,17,.3));}
+.edu-card-footer{display:flex;justify-content:space-between;gap:12px;margin-top:16px;padding-top:10px;border-top:1px solid rgba(255,255,255,.07);color:#4f647d;font-size:7px;font-weight:900;letter-spacing:.18em;position:relative;z-index:2;}.edu-card-footer span:last-child{color:#7489a4;}
+.edu-bottom-hud{margin:34px auto 0;max-width:920px;display:grid;grid-template-columns:1fr 120px 1fr;align-items:center;gap:20px;padding:12px 18px;border:1px solid rgba(103,135,177,.12);border-radius:999px;background:rgba(3,7,17,.62);backdrop-filter:blur(12px);color:#50657e;font-size:7px;font-weight:900;letter-spacing:.18em;}.edu-bottom-hud strong{display:block;margin-top:3px;color:#b5c4d8;font-size:9px;letter-spacing:.12em;}.edu-bottom-hud>div:last-child{text-align:right;}.edu-hud-web{height:18px;position:relative;display:flex;justify-content:center;gap:6px;align-items:center;}.edu-hud-web::before{content:"";position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#ef233c,#fff,#1687ff,transparent);}.edu-hud-web i{width:5px;height:5px;border:1px solid white;border-radius:50%;background:#06101f;z-index:1;animation:eduHudPulse 1.5s ease-in-out infinite;}.edu-hud-web i:nth-child(2){animation-delay:.3s}.edu-hud-web i:nth-child(3){animation-delay:.6s}@keyframes eduHudPulse{50%{transform:scale(1.8);box-shadow:0 0 10px #fff}}
+@media (max-width:700px){.spider-education{min-height:0}.edu-heading{margin-bottom:55px}.edu-timeline-wrap{padding-left:48px}.edu-timeline-line{left:14px!important}.edu-energy-line{left:8px}.edu-node-shell{left:-48px;width:38px;height:38px}.edu-node{width:38px!important;height:38px!important}.edu-node span{font-size:7px}.edu-node-web{inset:-10px}.edu-card-inner{padding:19px 17px 13px;border-radius:16px}.edu-card-top{align-items:flex-start}.edu-status{font-size:7px;letter-spacing:.1em}.edu-content-grid{grid-template-columns:1fr}.edu-side-icon{display:none}.edu-content-grid p{font-size:13px;line-height:1.65}.edu-bottom-hud{grid-template-columns:1fr 70px 1fr;gap:8px;padding:10px 12px}.edu-bottom-hud strong{font-size:7px}.edu-web-corner{width:230px;height:230px}.edu-title{font-size:clamp(2.4rem,13vw,4rem)}}
+@media (prefers-reduced-motion:reduce){.spider-education *,.spider-education::before,.spider-education::after{animation:none!important;transition:none!important}}
+
+.edu-click-web{position:absolute;width:20px;height:20px;border:1px solid rgba(255,255,255,.95);border-radius:50%;transform:translate(-50%,-50%) scale(.2);pointer-events:none;z-index:9;box-shadow:0 0 12px rgba(239,35,60,.8),0 0 28px rgba(22,135,255,.55);animation:eduClickWeb .75s cubic-bezier(.16,1,.3,1) forwards;}
+.edu-click-web::before,.edu-click-web::after{content:"";position:absolute;left:50%;top:50%;width:120px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.9),transparent);transform-origin:left center;}
+.edu-click-web::before{transform:rotate(0deg)}.edu-click-web::after{transform:rotate(90deg)}
+@keyframes eduClickWeb{0%{opacity:1;transform:translate(-50%,-50%) scale(.2)}45%{opacity:.9}100%{opacity:0;transform:translate(-50%,-50%) scale(7)}}
+</style>
+<style id="spider-skills-upgrade">
+#skills.spider-skills-section{position:relative;background:radial-gradient(circle at 14% 18%,rgba(239,68,68,.10),transparent 28%),radial-gradient(circle at 88% 72%,rgba(37,99,235,.12),transparent 30%),linear-gradient(180deg,#020611 0%,#050817 52%,#02040d 100%);min-height:720px;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);isolation:isolate}
+.skills-web-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.9}
+.skills-city-glow{position:absolute;width:42vw;height:42vw;border-radius:50%;filter:blur(80px);pointer-events:none;opacity:.18;animation:skillsGlow 7s ease-in-out infinite alternate}.skills-city-red{left:-22vw;top:12%;background:#ef233c}.skills-city-blue{right:-22vw;bottom:-15%;background:#1d4ed8;animation-delay:-3s}
+.skills-grid-floor{position:absolute;left:0;right:0;bottom:0;height:40%;opacity:.16;background-image:linear-gradient(rgba(95,154,255,.20) 1px,transparent 1px),linear-gradient(90deg,rgba(95,154,255,.20) 1px,transparent 1px);background-size:55px 55px;transform:perspective(450px) rotateX(62deg) scale(1.7);transform-origin:bottom;mask-image:linear-gradient(to top,black,transparent 80%);pointer-events:none}
+.skills-scanline{position:absolute;left:0;right:0;top:-10%;height:2px;background:linear-gradient(90deg,transparent,rgba(239,68,68,.7),rgba(255,255,255,.9),rgba(59,130,246,.7),transparent);box-shadow:0 0 25px rgba(59,130,246,.8);animation:skillsScan 8s linear infinite;pointer-events:none;opacity:.45}
+.skills-web-corner{position:absolute;width:260px;height:260px;opacity:.2;pointer-events:none;background:repeating-radial-gradient(circle at 0 0,transparent 0 28px,rgba(255,255,255,.35) 29px 30px,transparent 31px 55px);mask-image:linear-gradient(135deg,black,transparent 72%)}.skills-web-corner-tl{left:0;top:0}.skills-web-corner-br{right:0;bottom:0;transform:rotate(180deg)}
+.skills-hero-heading{position:relative;margin-bottom:22px}.skills-kicker{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:900;letter-spacing:.25em;color:#f87171;text-transform:uppercase;text-shadow:0 0 14px rgba(239,68,68,.65)}.skills-kicker-dot{width:7px;height:7px;border-radius:50%;background:#ef4444;box-shadow:0 0 0 4px rgba(239,68,68,.1),0 0 16px #ef4444;animation:skillsPulse 1.4s infinite}
+.skills-heading-row{display:flex;align-items:flex-end;justify-content:space-between;gap:30px}.skills-title{margin-top:8px;font-size:clamp(3rem,6vw,5.5rem);line-height:.95;font-weight:1000;letter-spacing:-.055em;color:#f8fafc;text-shadow:0 0 35px rgba(255,255,255,.08)}.skills-title span{color:#e8edf7}.skills-title::after{content:'SPIDER';display:block;color:rgba(239,68,68,.13);font-size:.34em;letter-spacing:.35em;margin-top:9px;font-weight:1000}.skills-title-line{height:5px;width:250px;display:flex;margin-top:18px;overflow:hidden;border-radius:99px;background:rgba(255,255,255,.08)}.skills-title-line i{width:43%;background:#ef4444;box-shadow:0 0 16px #ef4444}.skills-title-line b{width:32%;background:#a855f7;box-shadow:0 0 16px #a855f7}.skills-title-line em{flex:1;background:#3b82f6;box-shadow:0 0 16px #3b82f6}.skills-subtitle{margin-top:18px;max-width:720px;color:#94a3b8;font-size:1.05rem}.skills-hud{min-width:205px;padding:15px 17px;border:1px solid rgba(96,165,250,.25);background:linear-gradient(135deg,rgba(15,23,42,.76),rgba(15,23,42,.28));clip-path:polygon(0 0,92% 0,100% 22%,100% 100%,8% 100%,0 78%);box-shadow:inset 0 0 25px rgba(59,130,246,.06),0 0 30px rgba(0,0,0,.25)}.hud-label{display:block;font-size:9px;letter-spacing:.25em;color:#64748b}.skills-hud strong{display:block;color:#93c5fd;font-size:13px;letter-spacing:.14em;margin:6px 0}.skills-hud strong i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 10px #22c55e;margin-right:7px;animation:skillsPulse 1s infinite}.skills-hud small{font-size:9px;color:#64748b;letter-spacing:.18em}
+.skills-network-strip{height:34px;margin:5px 0 22px;display:flex;align-items:center;gap:8px;color:#475569;font-size:9px;letter-spacing:.25em}.skills-network-strip span,.skills-network-strip i,.skills-network-strip b,.skills-network-strip em,.skills-network-strip strong{width:8px;height:8px;border-radius:50%;display:block}.skills-network-strip span,.skills-network-strip b{background:#ef4444;box-shadow:0 0 12px #ef4444}.skills-network-strip i,.skills-network-strip em,.skills-network-strip strong{background:#3b82f6;box-shadow:0 0 12px #3b82f6}.skills-network-strip label{margin-left:8px;color:#64748b}
+.skills-matrix{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.spider-skill-card{position:relative;overflow:hidden;min-height:180px;padding:22px 24px;border:1px solid rgba(148,163,184,.18);border-radius:20px;background:linear-gradient(135deg,rgba(15,23,42,.86),rgba(10,13,27,.78));box-shadow:0 16px 45px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.04);transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .35s;transform-style:preserve-3d}.spider-skill-card::before{content:'';position:absolute;inset:0;background:linear-gradient(110deg,transparent 25%,rgba(239,68,68,.08) 48%,rgba(59,130,246,.08) 52%,transparent 75%);transform:translateX(-110%);transition:transform .7s}.spider-skill-card:hover::before{transform:translateX(110%)}.spider-skill-card:hover{border-color:rgba(239,68,68,.55);box-shadow:0 20px 60px rgba(0,0,0,.38),0 0 28px rgba(239,68,68,.12),0 0 70px rgba(59,130,246,.06)}.spider-skill-card:nth-child(even):hover{border-color:rgba(59,130,246,.55)}.skill-card-web{position:absolute;right:-35px;top:-35px;width:180px;height:180px;opacity:.15;background:repeating-radial-gradient(circle at 100% 0,transparent 0 22px,rgba(255,255,255,.5) 23px 24px,transparent 25px 45px);mask-image:linear-gradient(135deg,black,transparent 70%);transition:opacity .4s,transform .6s}.spider-skill-card:hover .skill-card-web{opacity:.34;transform:scale(1.12) rotate(7deg)}.skill-card-sweep{position:absolute;left:-100%;top:0;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);transform:skewX(-20deg);animation:skillSweep 5s ease-in-out infinite;pointer-events:none}.skill-card-top,.skill-card-bottom{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2}.skill-index{font-family:monospace;color:#64748b;font-size:10px;letter-spacing:.15em}.skill-chip{padding:4px 8px;border:1px solid rgba(239,68,68,.25);color:#f87171;background:rgba(239,68,68,.06);font-size:8px;font-weight:900;letter-spacing:.18em}.skill-chip.blue{border-color:rgba(59,130,246,.25);color:#60a5fa;background:rgba(59,130,246,.06)}.skill-name-row{display:grid;grid-template-columns:38px 1fr auto;align-items:center;gap:13px;margin:24px 0 18px;position:relative;z-index:2}.skill-spider-mark{display:grid;place-items:center;width:34px;height:34px;border:1px solid rgba(239,68,68,.4);border-radius:50%;color:#f87171;background:radial-gradient(circle,rgba(239,68,68,.2),transparent 65%);box-shadow:0 0 20px rgba(239,68,68,.16);animation:skillMark 3s ease-in-out infinite}.skill-spider-mark.blue{color:#60a5fa;border-color:rgba(59,130,246,.4);background:radial-gradient(circle,rgba(59,130,246,.2),transparent 65%);box-shadow:0 0 20px rgba(59,130,246,.16)}.skill-name-row h3{font-size:1.2rem;font-weight:900;color:#e5e7eb;line-height:1}.skill-name-row p{margin-top:5px;color:#64748b;font-size:8px;letter-spacing:.2em;font-weight:800}.skill-name-row>strong{font-size:1.65rem;color:#fca5a5;text-shadow:0 0 14px rgba(239,68,68,.25)}.spider-skill-card:nth-child(even) .skill-name-row>strong{color:#93c5fd}.skill-name-row>strong span{font-size:.7em}.skill-meter{height:9px;border-radius:99px;background:rgba(51,65,85,.5);position:relative;overflow:visible;z-index:2;box-shadow:inset 0 1px 4px rgba(0,0,0,.45)}.skill-meter-fill{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#ef4444,#a855f7 48%,#3b82f6);box-shadow:0 0 14px rgba(239,68,68,.35),0 0 22px rgba(59,130,246,.18);transition:width 1.7s cubic-bezier(.16,1,.3,1);position:relative}.skill-meter-fill::after{content:'';position:absolute;right:0;top:50%;width:3px;height:15px;border-radius:5px;background:#fff;box-shadow:0 0 10px #fff,0 0 18px #3b82f6;transform:translateY(-50%)}.skill-meter-dot{position:absolute;top:50%;right:0;width:13px;height:13px;border-radius:50%;border:2px solid #fff;transform:translate(50%,-50%) scale(.5);opacity:0;background:#3b82f6;box-shadow:0 0 15px #3b82f6;transition:all .6s 1.1s}.spider-skill-card.active .skill-meter-dot{opacity:1;transform:translate(50%,-50%) scale(1)}.skill-card-bottom{margin-top:12px;color:#475569;font-size:8px;font-weight:800;letter-spacing:.17em}.skills-footer-hud{display:flex;align-items:center;gap:12px;margin-top:30px;padding:12px 15px;border:1px solid rgba(255,255,255,.07);background:rgba(2,6,23,.55);color:#64748b;font-size:9px;letter-spacing:.14em}.skills-footer-hud>span{font-size:17px;filter:drop-shadow(0 0 8px rgba(255,255,255,.35))}.skills-footer-hud b{color:#94a3b8}.skills-footer-hud i{height:1px;flex:1;background:linear-gradient(90deg,rgba(239,68,68,.55),rgba(59,130,246,.35),transparent)}
+@keyframes skillsGlow{from{transform:scale(.9);opacity:.12}to{transform:scale(1.1);opacity:.22}}@keyframes skillsScan{0%{transform:translateY(0)}100%{transform:translateY(1150px)}}@keyframes skillsPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.45);opacity:.55}}@keyframes skillSweep{0%,55%{transform:translateX(-140%)}75%,100%{transform:translateX(360%)}}@keyframes skillMark{0%,100%{transform:rotate(0) scale(1)}50%{transform:rotate(180deg) scale(1.05)}}
+@media(max-width:900px){.skills-heading-row{align-items:flex-start;flex-direction:column}.skills-hud{width:100%;max-width:250px}.skills-matrix{grid-template-columns:1fr}.skills-title{font-size:clamp(3rem,14vw,5rem)}}
+@media(max-width:640px){#skills.spider-skills-section{min-height:auto}.spider-skill-card{padding:18px 17px;min-height:165px;border-radius:16px}.skill-name-row{grid-template-columns:32px 1fr auto;gap:9px;margin:20px 0 15px}.skill-spider-mark{width:30px;height:30px}.skill-name-row h3{font-size:1rem}.skill-name-row>strong{font-size:1.3rem}.skills-subtitle{font-size:.92rem}.skills-title-line{width:190px}.skills-footer-hud{flex-wrap:wrap}.skills-footer-hud i{display:none}.skills-grid-floor{opacity:.1}}
+@media(prefers-reduced-motion:reduce){.skills-city-glow,.skills-scanline,.skill-card-sweep,.skill-spider-mark{animation:none}.spider-skill-card{transition:none}.skill-meter-fill{transition:none}}
+</style>
+
+<style>
+
+/* =========================================================
+   SPIDER-VERSE UI OVERHAUL — visual layer only
+   ========================================================= */
+:root{
+  --sp-red:#ef233c;
+  --sp-red-deep:#8b0015;
+  --sp-blue:#2ea8ff;
+  --sp-blue-deep:#063b73;
+  --sp-ink:#01030a;
+  --sp-panel:rgba(7,11,24,.78);
+  --sp-line:rgba(255,255,255,.10);
+}
+
+body{
+  background:
+    radial-gradient(circle at 12% 8%,rgba(239,35,60,.08),transparent 22%),
+    radial-gradient(circle at 88% 24%,rgba(46,168,255,.07),transparent 24%),
+    linear-gradient(135deg,#01030a 0%,#030716 52%,#01030a 100%);
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:9994;
+  pointer-events:none;
+  opacity:.16;
+  background-image:radial-gradient(rgba(255,255,255,.45) .7px,transparent .8px);
+  background-size:5px 5px;
+  mask-image:linear-gradient(to bottom,transparent,black 18%,black 82%,transparent);
+  mix-blend-mode:screen;
+}
+
+#spiderHUD{
+  position:fixed;
+  left:18px;
+  bottom:18px;
+  z-index:9991;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:9px 12px;
+  border:1px solid rgba(46,168,255,.28);
+  border-radius:999px;
+  background:rgba(2,6,18,.72);
+  backdrop-filter:blur(14px) saturate(150%);
+  box-shadow:0 0 28px rgba(46,168,255,.10),inset 0 0 20px rgba(239,35,60,.04);
+  color:#a9bad4;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  pointer-events:none;
+  transition:transform .35s ease,opacity .35s ease;
+}
+#spiderHUD .hud-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--sp-red);
+  box-shadow:0 0 7px var(--sp-red),0 0 16px rgba(46,168,255,.55);
+  animation:hudPulse 1.2s ease-in-out infinite;
+}
+#spiderHUD .hud-line{width:28px;height:1px;background:linear-gradient(90deg,var(--sp-red),var(--sp-blue),transparent)}
+@keyframes hudPulse{50%{transform:scale(1.6);opacity:.55}}
+
+/* Header: sharper comic-panel silhouette */
+#mainHeader{
+  background:linear-gradient(180deg,rgba(1,3,10,.92),rgba(1,3,10,.70)) !important;
+  border-bottom-color:rgba(239,35,60,.18) !important;
+  box-shadow:0 12px 45px rgba(0,0,0,.35),0 1px 0 rgba(46,168,255,.10);
+}
+#mainHeader::after{
+  content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;
+  background:linear-gradient(90deg,transparent,var(--sp-red) 18%,#fff 50%,var(--sp-blue) 82%,transparent);
+  opacity:.7;box-shadow:0 0 15px rgba(239,35,60,.35);
+}
+#mainHeader nav > a:first-child{
+  position:relative;
+  letter-spacing:-.04em;
+  text-shadow:2px 2px 0 rgba(239,35,60,.75),-1px -1px 0 rgba(46,168,255,.55);
+}
+#mainHeader nav > a:first-child::before{
+  content:"✦";
+  display:inline-block;
+  margin-right:8px;
+  color:var(--sp-red);
+  filter:drop-shadow(0 0 6px rgba(239,35,60,.8));
+  animation:spiderStar 2.8s ease-in-out infinite;
+}
+@keyframes spiderStar{50%{transform:rotate(180deg) scale(1.15);color:var(--sp-blue)}}
+
+.nav-link{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800}
+.nav-link::after{height:3px;border-radius:0;background:linear-gradient(90deg,var(--sp-red),#fff,var(--sp-blue)) !important}
+
+/* Every major section gets a comic / spider-tech atmosphere */
+main > section,
+main > section[id]{
+  position:relative;
+  isolation:isolate;
+}
+main > section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-2;
+  pointer-events:none;
+  background:
+    linear-gradient(135deg,rgba(239,35,60,.035),transparent 32%,rgba(46,168,255,.035) 78%,transparent),
+    repeating-linear-gradient(135deg,transparent 0 32px,rgba(255,255,255,.012) 33px,transparent 34px);
+}
+main > section::after{
+  content:"";
+  position:absolute;
+  right:-120px;top:12%;
+  width:360px;height:360px;
+  z-index:-1;
+  pointer-events:none;
+  opacity:.22;
+  background:
+    repeating-radial-gradient(circle,transparent 0 30px,rgba(255,255,255,.07) 31px 32px,transparent 33px 58px),
+    repeating-conic-gradient(from 0deg,transparent 0 10deg,rgba(239,35,60,.09) 11deg 12deg,transparent 13deg 25deg);
+  mask-image:radial-gradient(circle,#000 0 45%,transparent 72%);
+  animation:webMedallion 24s linear infinite;
+}
+@keyframes webMedallion{to{transform:rotate(360deg)}}
+
+.section-title{
+  letter-spacing:-.045em;
+  text-shadow:2px 2px 0 rgba(239,35,60,.14),-1px -1px 0 rgba(46,168,255,.10);
+}
+.section-title::before{
+  content:"SPIDER // FILE";
+  display:block;
+  margin-bottom:8px;
+  color:rgba(46,168,255,.62);
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+}
+.section-title::after{
+  width:110px !important;
+  height:4px !important;
+  margin-top:14px !important;
+  background:linear-gradient(90deg,var(--sp-red),#fff 45%,var(--sp-blue),transparent) !important;
+  box-shadow:0 0 13px rgba(239,35,60,.35);
+}
+
+/* About panel */
+#about{background:linear-gradient(180deg,rgba(15,23,42,.54),rgba(1,3,10,.82)) !important}
+#aboutPhotoTarget{
+  transform:rotate(-1.5deg);
+  transition:transform .45s cubic-bezier(.16,1,.3,1),filter .45s ease;
+}
+#aboutPhotoTarget:hover{transform:rotate(0deg) translateY(-10px) scale(1.025);filter:saturate(1.08)}
+#aboutPhotoTarget::before,
+#aboutPhotoTarget::after{
+  content:"";position:absolute;pointer-events:none;z-index:12;border-radius:28px;
+}
+#aboutPhotoTarget::before{
+  inset:-13px;
+  border:1px solid rgba(46,168,255,.38);
+  box-shadow:0 0 0 6px rgba(239,35,60,.045),0 0 35px rgba(46,168,255,.18),inset 0 0 28px rgba(239,35,60,.08);
+  clip-path:polygon(0 8%,8% 8%,8% 0,92% 0,92% 8%,100% 8%,100% 92%,92% 92%,92% 100%,8% 100%,8% 92%,0 92%);
+  animation:photoFrame 3.2s ease-in-out infinite;
+}
+#aboutPhotoTarget::after{
+  inset:0;
+  opacity:.75;
+  background:
+    repeating-radial-gradient(circle at 50% 50%,transparent 0 28px,rgba(255,255,255,.13) 29px 30px,transparent 31px 55px),
+    repeating-conic-gradient(from 0deg at 50% 50%,rgba(239,35,60,.18) 0deg 1deg,transparent 1deg 30deg,rgba(46,168,255,.18) 30deg 31deg,transparent 31deg 45deg);
+  mask-image:radial-gradient(circle,transparent 0 50%,#000 68%,transparent 84%);
+  animation:photoWebSpin 18s linear infinite;
+}
+@keyframes photoFrame{50%{box-shadow:0 0 0 6px rgba(46,168,255,.045),0 0 45px rgba(239,35,60,.25),inset 0 0 34px rgba(46,168,255,.10)}}
+@keyframes photoWebSpin{to{transform:rotate(360deg)}}
+#aboutPhotoTarget > div.relative{box-shadow:0 22px 70px rgba(0,0,0,.55),0 0 28px rgba(239,35,60,.10);border-color:rgba(255,255,255,.16) !important}
+
+.cool-card{
+  border-color:rgba(255,255,255,.08) !important;
+  background:linear-gradient(145deg,rgba(17,24,39,.82),rgba(4,8,20,.74)) !important;
+  clip-path:polygon(0 0,98% 0,100% 8%,100% 92%,98% 100%,0 100%,0 8%);
+}
+.cool-card::before{background:rgba(239,35,60,.13) !important}
+.cool-card:hover{border-color:rgba(239,35,60,.45) !important;box-shadow:0 22px 60px rgba(0,0,0,.4),0 0 32px rgba(239,35,60,.13) !important}
+
+/* Tags become comic callouts */
+#about .mt-8 span{
+  position:relative;
+  overflow:hidden;
+  box-shadow:inset 0 0 18px rgba(255,255,255,.025),0 0 0 1px rgba(255,255,255,.02);
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+#about .mt-8 span:hover{transform:translateY(-4px) rotate(-1deg);box-shadow:0 10px 25px rgba(0,0,0,.25),0 0 20px rgba(46,168,255,.12)}
+
+/* Contact: make the form feel like a web-shooter console */
+#contact{background:radial-gradient(circle at 82% 60%,rgba(239,35,60,.07),transparent 24%),linear-gradient(180deg,#01030a,#020617) !important}
+#contactForm{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(145deg,rgba(17,24,39,.80),rgba(2,6,23,.88)) !important;
+  border:1px solid rgba(46,168,255,.24) !important;
+  box-shadow:0 25px 90px rgba(0,0,0,.5),0 0 50px rgba(46,168,255,.07),inset 0 0 35px rgba(239,35,60,.035) !important;
+}
+#contactForm::before{
+  content:"WEB-SHOOTER // SECURE CHANNEL";
+  position:absolute;right:22px;top:16px;
+  color:rgba(46,168,255,.48);font-size:8px;font-weight:900;letter-spacing:.18em;
+}
+#contactForm::after{
+  content:"";position:absolute;left:-30%;top:0;width:28%;height:2px;
+  background:linear-gradient(90deg,transparent,#fff,var(--sp-blue),var(--sp-red),transparent);
+  box-shadow:0 0 15px rgba(46,168,255,.6);
+  animation:formScan 4.5s linear infinite;
+}
+@keyframes formScan{to{left:130%}}
+#contactForm input,#contactForm textarea{
+  border-color:rgba(148,163,184,.22) !important;
+  background:rgba(1,3,10,.72) !important;
+  box-shadow:inset 0 0 18px rgba(0,0,0,.25);
+}
+#contactForm input:focus,#contactForm textarea:focus{
+  border-color:var(--sp-red) !important;
+  box-shadow:0 0 0 3px rgba(239,35,60,.08),0 0 24px rgba(239,35,60,.10),inset 0 0 18px rgba(46,168,255,.03);
+}
+#contactForm button[type="submit"]{
+  letter-spacing:.12em;text-transform:uppercase;
+  clip-path:polygon(0 0,97% 0,100% 22%,100% 78%,97% 100%,0 100%,3% 78%,3% 22%);
+}
+
+/* Comic hover / web snap */
+.spider-web-snap{
+  position:fixed;z-index:99993;pointer-events:none;
+  width:2px;height:160px;transform-origin:top center;
+  background:linear-gradient(to bottom,rgba(255,255,255,.95),rgba(46,168,255,.8),rgba(239,35,60,.25),transparent);
+  box-shadow:0 0 10px rgba(255,255,255,.8),0 0 25px rgba(46,168,255,.5);
+  animation:webSnap .65s cubic-bezier(.16,1,.3,1) forwards;
+}
+@keyframes webSnap{0%{opacity:0;transform:translate(-50%,0) scaleY(.03) rotate(var(--a))}15%{opacity:1}100%{opacity:0;transform:translate(-50%,0) scaleY(1) rotate(var(--a))}}
+.spider-click-ring{
+  position:fixed;z-index:99992;pointer-events:none;width:12px;height:12px;border:2px solid #fff;border-radius:50%;
+  transform:translate(-50%,-50%);animation:clickRing .7s ease-out forwards;box-shadow:0 0 12px var(--sp-red),0 0 26px var(--sp-blue)
+}
+@keyframes clickRing{to{width:150px;height:150px;opacity:0;border-width:1px}}
+
+@media(max-width:768px){
+  #spiderHUD{left:10px;bottom:10px;transform:scale(.9);transform-origin:left bottom}
+  main > section::after{right:-180px;opacity:.12}
+  #aboutPhotoTarget::after{opacity:.45}
+}
+@media(prefers-reduced-motion:reduce){
+  #spiderHUD .hud-dot,#mainHeader nav > a:first-child::before,main > section::after,#aboutPhotoTarget::before,#aboutPhotoTarget::after,#contactForm::after{animation:none !important}
+}
+
+</style>
+
 </head>
 
 <body class="bg-slate-950 text-slate-100 antialiased">
 
     <div id="scrollProgress"></div>
+
+    <div id="spiderHUD" aria-hidden="true">
+  <span class="hud-dot"></span><span>SPIDER SYSTEM</span><span class="hud-line"></span><span>ONLINE</span>
+</div>
 
     <audio
         id="backgroundMusic"
@@ -3119,290 +3487,188 @@ body::before{content:"";position:fixed;inset:0;z-index:9997;pointer-events:none;
 
         </section>
 
-        <section id="skills">
+        <section id="skills" class="spider-skills-section relative overflow-hidden">
 
-            <div class="mx-auto max-w-7xl px-5 py-24 lg:px-8">
+            <canvas id="skillsWebCanvas" class="skills-web-canvas" aria-hidden="true"></canvas>
+            <div class="skills-city-glow skills-city-red"></div>
+            <div class="skills-city-glow skills-city-blue"></div>
+            <div class="skills-grid-floor"></div>
+            <div class="skills-web-corner skills-web-corner-tl"></div>
+            <div class="skills-web-corner skills-web-corner-br"></div>
+            <div class="skills-scanline"></div>
 
-                <div class="reveal mb-14">
+            <div class="mx-auto max-w-7xl px-5 py-24 lg:px-8 relative z-10">
 
-                    <p class="font-bold uppercase tracking-widest text-red-400">
-                        Skills
-                    </p>
-
-                    <h2 class="section-title mt-2 text-4xl font-black sm:text-5xl">
-                        Technical Skills
-                    </h2>
-
-                    <p class="mt-4 max-w-2xl text-slate-400">
-
-                        Core technologies and tools I use while developing
-                        applications and websites.
-
-                    </p>
-
+                <div class="skills-hero-heading reveal">
+                    <div class="skills-kicker"><span class="skills-kicker-dot"></span> SPIDER SYSTEM / SKILL MATRIX</div>
+                    <div class="skills-heading-row">
+                        <div>
+                            <h2 class="skills-title"><span>Technical</span> Skills</h2>
+                            <div class="skills-title-line"><i></i><b></b><em></em></div>
+                            <p class="skills-subtitle">Core technologies and tools I use while developing applications and websites.</p>
+                        </div>
+                        <div class="skills-hud">
+                            <span class="hud-label">WEB STATUS</span>
+                            <strong><i></i> ONLINE</strong>
+                            <small>06 NODES / ACTIVE</small>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="grid gap-5 md:grid-cols-2">
-
-                    <div class="cool-card reveal rounded-2xl border border-white/10 p-6">
-
-                        <div class="mb-4 flex justify-between">
-
-                            <span class="font-bold">
-                                HTML
-                            </span>
-
-                            <span
-                                class="skill-percent text-red-300"
-                                data-target="90">
-                                0%
-                            </span>
-
-                        </div>
-
-                        <div class="h-3 overflow-hidden rounded-full bg-slate-800">
-
-                            <div
-                                class="skill-progress h-full rounded-full bg-gradient-to-r from-red-500 to-blue-500"
-                                data-width="90%">
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="cool-card reveal rounded-2xl border border-white/10 p-6">
-
-                        <div class="mb-4 flex justify-between">
-
-                            <span class="font-bold">
-                                CSS
-                            </span>
-
-                            <span
-                                class="skill-percent text-red-300"
-                                data-target="85">
-                                0%
-                            </span>
-
-                        </div>
-
-                        <div class="h-3 overflow-hidden rounded-full bg-slate-800">
-
-                            <div
-                                class="skill-progress h-full rounded-full bg-gradient-to-r from-red-500 to-blue-500"
-                                data-width="85%">
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="cool-card reveal rounded-2xl border border-white/10 p-6">
-
-                        <div class="mb-4 flex justify-between">
-
-                            <span class="font-bold">
-                                JavaScript
-                            </span>
-
-                            <span
-                                class="skill-percent text-red-300"
-                                data-target="80">
-                                0%
-                            </span>
-
-                        </div>
-
-                        <div class="h-3 overflow-hidden rounded-full bg-slate-800">
-
-                            <div
-                                class="skill-progress h-full rounded-full bg-gradient-to-r from-red-500 to-blue-500"
-                                data-width="80%">
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="cool-card reveal rounded-2xl border border-white/10 p-6">
-
-                        <div class="mb-4 flex justify-between">
-
-                            <span class="font-bold">
-                                PHP
-                            </span>
-
-                            <span
-                                class="skill-percent text-red-300"
-                                data-target="78">
-                                0%
-                            </span>
-
-                        </div>
-
-                        <div class="h-3 overflow-hidden rounded-full bg-slate-800">
-
-                            <div
-                                class="skill-progress h-full rounded-full bg-gradient-to-r from-red-500 to-blue-500"
-                                data-width="78%">
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="cool-card reveal rounded-2xl border border-white/10 p-6">
-
-                        <div class="mb-4 flex justify-between">
-
-                            <span class="font-bold">
-                                MySQL
-                            </span>
-
-                            <span
-                                class="skill-percent text-red-300"
-                                data-target="82">
-                                0%
-                            </span>
-
-                        </div>
-
-                        <div class="h-3 overflow-hidden rounded-full bg-slate-800">
-
-                            <div
-                                class="skill-progress h-full rounded-full bg-gradient-to-r from-red-500 to-blue-500"
-                                data-width="82%">
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="cool-card reveal rounded-2xl border border-white/10 p-6">
-
-                        <div class="mb-4 flex justify-between">
-
-                            <span class="font-bold">
-                                Tailwind CSS
-                            </span>
-
-                            <span
-                                class="skill-percent text-red-300"
-                                data-target="88">
-                                0%
-                            </span>
-
-                        </div>
-
-                        <div class="h-3 overflow-hidden rounded-full bg-slate-800">
-
-                            <div
-                                class="skill-progress h-full rounded-full bg-gradient-to-r from-red-500 to-blue-500"
-                                data-width="88%">
-                            </div>
-
-                        </div>
-
-                    </div>
-
+                <div class="skills-network-strip" aria-hidden="true">
+                    <span></span><i></i><b></b><em></em><strong></strong>
+                    <label>SPIDER WEB // CONNECTED</label>
                 </div>
 
+                <div class="skills-matrix">
+                    <article class="spider-skill-card reveal" data-skill="HTML" data-level="90">
+                        <div class="skill-card-web"></div><div class="skill-card-sweep"></div>
+                        <div class="skill-card-top"><span class="skill-index">01</span><span class="skill-chip">CORE</span></div>
+                        <div class="skill-name-row"><div class="skill-spider-mark">✦</div><div><h3>HTML</h3><p>STRUCTURE / WEB</p></div><strong>90<span>%</span></strong></div>
+                        <div class="skill-meter"><div class="skill-meter-fill" style="--skill:90%"></div><span class="skill-meter-dot"></span></div>
+                        <div class="skill-card-bottom"><span>WEB NODE</span><span>90 / 100</span></div>
+                    </article>
+
+                    <article class="spider-skill-card reveal" data-skill="CSS" data-level="85">
+                        <div class="skill-card-web"></div><div class="skill-card-sweep"></div>
+                        <div class="skill-card-top"><span class="skill-index">02</span><span class="skill-chip blue">STYLE</span></div>
+                        <div class="skill-name-row"><div class="skill-spider-mark blue">✦</div><div><h3>CSS</h3><p>STYLE / MOTION</p></div><strong>85<span>%</span></strong></div>
+                        <div class="skill-meter"><div class="skill-meter-fill" style="--skill:85%"></div><span class="skill-meter-dot"></span></div>
+                        <div class="skill-card-bottom"><span>WEB NODE</span><span>85 / 100</span></div>
+                    </article>
+
+                    <article class="spider-skill-card reveal" data-skill="JavaScript" data-level="80">
+                        <div class="skill-card-web"></div><div class="skill-card-sweep"></div>
+                        <div class="skill-card-top"><span class="skill-index">03</span><span class="skill-chip">SCRIPT</span></div>
+                        <div class="skill-name-row"><div class="skill-spider-mark">✦</div><div><h3>JavaScript</h3><p>INTERACTION / LOGIC</p></div><strong>80<span>%</span></strong></div>
+                        <div class="skill-meter"><div class="skill-meter-fill" style="--skill:80%"></div><span class="skill-meter-dot"></span></div>
+                        <div class="skill-card-bottom"><span>WEB NODE</span><span>80 / 100</span></div>
+                    </article>
+
+                    <article class="spider-skill-card reveal" data-skill="PHP" data-level="78">
+                        <div class="skill-card-web"></div><div class="skill-card-sweep"></div>
+                        <div class="skill-card-top"><span class="skill-index">04</span><span class="skill-chip blue">BACKEND</span></div>
+                        <div class="skill-name-row"><div class="skill-spider-mark blue">✦</div><div><h3>PHP</h3><p>SERVER / API</p></div><strong>78<span>%</span></strong></div>
+                        <div class="skill-meter"><div class="skill-meter-fill" style="--skill:78%"></div><span class="skill-meter-dot"></span></div>
+                        <div class="skill-card-bottom"><span>SERVER NODE</span><span>78 / 100</span></div>
+                    </article>
+
+                    <article class="spider-skill-card reveal" data-skill="MySQL" data-level="82">
+                        <div class="skill-card-web"></div><div class="skill-card-sweep"></div>
+                        <div class="skill-card-top"><span class="skill-index">05</span><span class="skill-chip">DATA</span></div>
+                        <div class="skill-name-row"><div class="skill-spider-mark">✦</div><div><h3>MySQL</h3><p>DATABASE / QUERY</p></div><strong>82<span>%</span></strong></div>
+                        <div class="skill-meter"><div class="skill-meter-fill" style="--skill:82%"></div><span class="skill-meter-dot"></span></div>
+                        <div class="skill-card-bottom"><span>DATA NODE</span><span>82 / 100</span></div>
+                    </article>
+
+                    <article class="spider-skill-card reveal" data-skill="Tailwind CSS" data-level="88">
+                        <div class="skill-card-web"></div><div class="skill-card-sweep"></div>
+                        <div class="skill-card-top"><span class="skill-index">06</span><span class="skill-chip blue">UI / UX</span></div>
+                        <div class="skill-name-row"><div class="skill-spider-mark blue">✦</div><div><h3>Tailwind CSS</h3><p>UTILITY / DESIGN</p></div><strong>88<span>%</span></strong></div>
+                        <div class="skill-meter"><div class="skill-meter-fill" style="--skill:88%"></div><span class="skill-meter-dot"></span></div>
+                        <div class="skill-card-bottom"><span>DESIGN NODE</span><span>88 / 100</span></div>
+                    </article>
+                </div>
+
+                <div class="skills-footer-hud reveal">
+                    <span>🕷</span><b>WITH GREAT CODE COMES GREAT RESPONSIBILITY</b><i></i><small>SPIDER MODE // READY</small>
+                </div>
             </div>
-
         </section>
 
-        <section
-            id="education"
-            class="border-y border-white/10 bg-slate-900/50">
+        <section id="education" class="spider-education relative overflow-hidden border-y border-white/10">
+            <div class="edu-city-glow edu-glow-red"></div>
+            <div class="edu-city-glow edu-glow-blue"></div>
+            <div class="edu-web-corner edu-web-corner-left"></div>
+            <div class="edu-web-corner edu-web-corner-right"></div>
+            <div class="edu-scanline"></div>
+            <canvas id="educationWebCanvas" class="education-web-canvas" aria-hidden="true"></canvas>
 
-            <div class="mx-auto max-w-5xl px-5 py-24">
-
-                <div class="reveal mb-14 text-center">
-
-                    <p class="font-bold uppercase tracking-widest text-red-400">
-                        Education
-                    </p>
-
-                    <h2 class="section-title mt-2 text-4xl font-black">
-                        Academic Timeline
-                    </h2>
-
+            <div class="mx-auto max-w-6xl px-5 py-24 lg:px-8 relative z-10">
+                <div class="reveal edu-heading text-center">
+                    <div class="edu-kicker"><span class="edu-kicker-dot"></span> SPIDER-VERSE // EDUCATION <span class="edu-kicker-dot"></span></div>
+                    <h2 class="edu-title">ACADEMIC <span>TIMELINE</span></h2>
+                    <p class="edu-subtitle">Every skill is another thread in the web.</p>
+                    <div class="edu-title-web" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
                 </div>
 
-                <div class="relative pl-10">
+                <div class="edu-timeline-wrap">
+                    <div id="timelineLine" class="timeline-line edu-timeline-line"></div>
+                    <div class="edu-energy-line"></div>
 
-                    <div
-                        id="timelineLine"
-                        class="timeline-line">
-                    </div>
+                    <article class="timeline-item edu-card reveal" data-year="2024" data-accent="red">
+                        <div class="edu-node-shell">
+                            <span class="timeline-dot edu-node"><span>01</span></span>
+                            <div class="edu-node-web"></div>
+                        </div>
+                        <div class="edu-card-inner">
+                            <div class="edu-card-top">
+                                <span class="edu-year">2024</span>
+                                <span class="edu-status"><b></b> ORIGIN POINT</span>
+                            </div>
+                            <div class="edu-content-grid">
+                                <div>
+                                    <div class="edu-label">FOUNDATION / 001</div>
+                                    <h3>BS Information Technology</h3>
+                                    <p>Started academic training in Information Technology.</p>
+                                </div>
+                                <div class="edu-side-icon" aria-hidden="true"><span>IT</span></div>
+                            </div>
+                            <div class="edu-card-footer"><span>WEB THREAD: ACTIVE</span><span>01 / 03</span></div>
+                        </div>
+                    </article>
 
-                    <div class="timeline-item reveal relative mb-14">
+                    <article class="timeline-item edu-card reveal" data-year="2025" data-accent="blue">
+                        <div class="edu-node-shell">
+                            <span class="timeline-dot edu-node"><span>02</span></span>
+                            <div class="edu-node-web"></div>
+                        </div>
+                        <div class="edu-card-inner">
+                            <div class="edu-card-top">
+                                <span class="edu-year">2025</span>
+                                <span class="edu-status"><b></b> SKILL UNLOCKED</span>
+                            </div>
+                            <div class="edu-content-grid">
+                                <div>
+                                    <div class="edu-label">DEVELOPMENT / 002</div>
+                                    <h3>Web Development</h3>
+                                    <p>Developed skills in front-end, back-end, databases, and application development.</p>
+                                </div>
+                                <div class="edu-side-icon" aria-hidden="true"><span>&lt;/&gt;</span></div>
+                            </div>
+                            <div class="edu-card-footer"><span>WEB THREAD: EXPANDING</span><span>02 / 03</span></div>
+                        </div>
+                    </article>
 
-                        <span
-                            class="timeline-dot absolute -left-[39px] top-1 h-5 w-5 rounded-full border-4 border-slate-950 bg-red-400">
-                        </span>
-
-                        <p class="font-bold text-red-300">
-                            2024
-                        </p>
-
-                        <h3 class="mt-1 text-2xl font-bold">
-                            BS Information Technology
-                        </h3>
-
-                        <p class="mt-2 text-slate-400">
-                            Started academic training in Information Technology.
-                        </p>
-
-                    </div>
-
-                    <div class="timeline-item reveal relative mb-14">
-
-                        <span
-                            class="timeline-dot absolute -left-[39px] top-1 h-5 w-5 rounded-full border-4 border-slate-950 bg-blue-400">
-                        </span>
-
-                        <p class="font-bold text-blue-300">
-                            2025
-                        </p>
-
-                        <h3 class="mt-1 text-2xl font-bold">
-                            Web Development
-                        </h3>
-
-                        <p class="mt-2 text-slate-400">
-                            Developed skills in front-end, back-end,
-                            databases, and application development.
-                        </p>
-
-                    </div>
-
-                    <div class="timeline-item reveal relative">
-
-                        <span
-                            class="timeline-dot absolute -left-[39px] top-1 h-5 w-5 rounded-full border-4 border-slate-950 bg-violet-400">
-                        </span>
-
-                        <p class="font-bold text-violet-300">
-                            2026
-                        </p>
-
-                        <h3 class="mt-1 text-2xl font-bold">
-                            Professional Training
-                        </h3>
-
-                        <p class="mt-2 text-slate-400">
-                            Continued practical training through software
-                            projects and laboratory activities.
-                        </p>
-
-                    </div>
-
+                    <article class="timeline-item edu-card reveal" data-year="2026" data-accent="violet">
+                        <div class="edu-node-shell">
+                            <span class="timeline-dot edu-node"><span>03</span></span>
+                            <div class="edu-node-web"></div>
+                        </div>
+                        <div class="edu-card-inner">
+                            <div class="edu-card-top">
+                                <span class="edu-year">2026</span>
+                                <span class="edu-status"><b></b> CURRENT MISSION</span>
+                            </div>
+                            <div class="edu-content-grid">
+                                <div>
+                                    <div class="edu-label">PRO TRAINING / 003</div>
+                                    <h3>Professional Training</h3>
+                                    <p>Continued practical training through software projects and laboratory activities.</p>
+                                </div>
+                                <div class="edu-side-icon" aria-hidden="true"><span>⚡</span></div>
+                            </div>
+                            <div class="edu-card-footer"><span>WEB THREAD: CONNECTED</span><span>03 / 03</span></div>
+                        </div>
+                    </article>
                 </div>
 
+                <div class="edu-bottom-hud reveal">
+                    <div><span>SPIDER SENSE</span><strong>ONLINE</strong></div>
+                    <div class="edu-hud-web"><i></i><i></i><i></i></div>
+                    <div><span>MISSION</span><strong>BUILD THE FUTURE</strong></div>
+                </div>
             </div>
-
         </section>
 
         <section id="projects" class="projects-ultra relative overflow-hidden">
@@ -3704,7 +3970,7 @@ body::before{content:"";position:fixed;inset:0;z-index:9997;pointer-events:none;
             </p>
 
             <p>
-                Great power comes with great responsibility!
+                WITH GREAT CODE COMES GREAT RESPONSIBILITY!
             </p>
 
         </div>
@@ -5597,6 +5863,147 @@ if (heroSection) {
     slides.forEach((slide,i)=>{
         slide.style.setProperty('--card-index',i);
     });
+})();
+</script>
+
+
+<script>
+/* Spider-Man education interactions: mouse-reactive web + card tilt + web burst */
+(function(){
+  const section=document.getElementById('education');
+  const canvas=document.getElementById('educationWebCanvas');
+  if(!section||!canvas)return;
+  const ctx=canvas.getContext('2d');
+  let w=0,h=0,dpr=1,mx=.5,my=.35,targetX=.5,targetY=.35,t=0;
+  const nodes=[...section.querySelectorAll('.edu-card')];
+  function resize(){dpr=Math.min(window.devicePixelRatio||1,2);w=canvas.clientWidth;h=canvas.clientHeight;canvas.width=w*dpr;canvas.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
+  function drawWeb(cx,cy,r,alpha,rotation=0){
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(rotation);ctx.strokeStyle=`rgba(255,255,255,${alpha})`;ctx.lineWidth=1;
+    for(let i=0;i<14;i++){const a=i*Math.PI*2/14;ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(Math.cos(a)*r,Math.sin(a)*r);ctx.stroke();}
+    for(let ring=1;ring<7;ring++){const rr=r*ring/7;ctx.beginPath();for(let i=0;i<=14;i++){const a=i*Math.PI*2/14;const wobble=1+Math.sin(a*3+ring*.8+t*.35)*.025;const x=Math.cos(a)*rr*wobble,y=Math.sin(a)*rr*wobble;i?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.stroke();}
+    ctx.restore();
+  }
+  function animate(){
+    t+=.016;mx+=(targetX-mx)*.035;my+=(targetY-my)*.035;ctx.clearRect(0,0,w,h);
+    drawWeb(w*mx,h*my,Math.min(w,h)*.28,.13,t*.06);
+    drawWeb(w*(1-mx*.12),h*(.22+my*.12),Math.min(w,h)*.18,.065,-t*.04);
+    requestAnimationFrame(animate);
+  }
+  section.addEventListener('pointermove',e=>{const r=section.getBoundingClientRect();targetX=(e.clientX-r.left)/r.width;targetY=(e.clientY-r.top)/r.height;});
+  section.addEventListener('pointerleave',()=>{targetX=.5;targetY=.35;});
+  nodes.forEach(card=>{
+    card.addEventListener('pointermove',e=>{
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+      const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      card.querySelector('.edu-card-inner').style.transform=`translateY(-7px) perspective(900px) rotateX(${(-y*3).toFixed(2)}deg) rotateY(${(x*4).toFixed(2)}deg)`;
+    });
+    card.addEventListener('pointerleave',()=>card.querySelector('.edu-card-inner').style.transform='');
+    card.addEventListener('pointerdown',e=>{
+      const r=card.getBoundingClientRect();const fx=document.createElement('span');fx.className='edu-click-web';fx.style.left=((e.clientX-r.left)/r.width*100)+'%';fx.style.top=((e.clientY-r.top)/r.height*100)+'%';card.querySelector('.edu-card-inner').appendChild(fx);setTimeout(()=>fx.remove(),800);
+    });
+  });
+  resize();window.addEventListener('resize',resize,{passive:true});animate();
+})();
+</script>
+
+
+<script id="spider-skills-upgrade-js">
+(function(){
+ const section=document.getElementById('skills');
+ const cards=[...document.querySelectorAll('.spider-skill-card')];
+ if(!section)return;
+ const activate=()=>cards.forEach((c,i)=>setTimeout(()=>{c.classList.add('active');const fill=c.querySelector('.skill-meter-fill');if(fill)fill.style.width=fill.style.getPropertyValue('--skill');},i*130));
+ const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){activate();io.disconnect();}},{threshold:.18});io.observe(section);
+ cards.forEach(card=>{
+   card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(900px) rotateX(${(-y*5).toFixed(2)}deg) rotateY(${(x*7).toFixed(2)}deg) translateY(-4px)`;});
+   card.addEventListener('mouseleave',()=>card.style.transform='');
+   card.addEventListener('click',e=>{const r=card.getBoundingClientRect();const burst=document.createElement('span');burst.style.cssText=`position:absolute;left:${e.clientX-r.left}px;top:${e.clientY-r.top}px;width:20px;height:20px;border:1px solid rgba(255,255,255,.9);border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:8;box-shadow:0 0 20px #ef4444,0 0 35px #3b82f6;animation:skillBurst .75s ease-out forwards`;card.appendChild(burst);setTimeout(()=>burst.remove(),800);});
+ });
+ const canvas=document.getElementById('skillsWebCanvas'),ctx=canvas.getContext('2d');let pts=[];let mouse={x:-9999,y:-9999};
+ function resize(){const r=section.getBoundingClientRect();canvas.width=r.width*devicePixelRatio;canvas.height=r.height*devicePixelRatio;canvas.style.width=r.width+'px';canvas.style.height=r.height+'px';ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);pts=[];const n=Math.min(90,Math.floor(r.width/18));for(let i=0;i<n;i++)pts.push({x:Math.random()*r.width,y:Math.random()*r.height,vx:(Math.random()-.5)*.16,vy:(Math.random()-.5)*.16});}
+ function draw(){const r=section.getBoundingClientRect();ctx.clearRect(0,0,r.width,r.height);for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>r.width)p.vx*=-1;if(p.y<0||p.y>r.height)p.vy*=-1;const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.hypot(dx,dy);if(d<150){ctx.strokeStyle=`rgba(180,205,255,${(1-d/150)*.28})`;ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke();}for(const q of pts){const qx=p.x-q.x,qy=p.y-q.y,dd=Math.hypot(qx,qy);if(dd<95){ctx.strokeStyle=`rgba(${Math.random()>.5?'239,68,68':'59,130,246'},${(1-dd/95)*.075})`;ctx.lineWidth=.55;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}}}requestAnimationFrame(draw);}
+ section.addEventListener('mousemove',e=>{const r=section.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top});section.addEventListener('mouseleave',()=>mouse={x:-9999,y:-9999});window.addEventListener('resize',resize,{passive:true});resize();draw();
+ const st=document.createElement('style');st.textContent='@keyframes skillBurst{to{width:260px;height:260px;opacity:0;border-width:2px;box-shadow:0 0 45px #ef4444,0 0 90px #3b82f6}}';document.head.appendChild(st);
+})();
+</script>
+
+
+<script id="spider-verse-ui-upgrade">
+(function(){
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return;
+
+  const hud = document.getElementById('spiderHUD');
+  const root = document.documentElement;
+  let lastX = innerWidth/2, lastY = innerHeight/2;
+
+  window.addEventListener('mousemove', (e)=>{
+    root.style.setProperty('--mx', (e.clientX/innerWidth*100)+'%');
+    root.style.setProperty('--my', (e.clientY/innerHeight*100)+'%');
+    lastX=e.clientX; lastY=e.clientY;
+    if(hud){
+      hud.style.transform = `translate(${((e.clientX/innerWidth)-.5)*8}px,${((e.clientY/innerHeight)-.5)*5}px)`;
+    }
+  }, {passive:true});
+
+  function ring(x,y){
+    const el=document.createElement('span');
+    el.className='spider-click-ring';
+    el.style.left=x+'px'; el.style.top=y+'px';
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),720);
+  }
+
+  function webSnap(x,y){
+    const el=document.createElement('span');
+    el.className='spider-web-snap';
+    el.style.left=x+'px'; el.style.top=y+'px';
+    el.style.setProperty('--a', `${Math.atan2(lastY-y,lastX-x)*180/Math.PI+90}deg`);
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),700);
+  }
+
+  document.addEventListener('click',(e)=>{
+    ring(e.clientX,e.clientY);
+    if(Math.random()>.28) webSnap(e.clientX,e.clientY);
+  }, {passive:true});
+
+  /* Buttons and cards feel tactile without replacing the existing interactions. */
+  document.querySelectorAll('.spider-button,.glass-button,.nav-link,#contactForm input,#contactForm textarea,.cool-card').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{
+      if(hud) hud.querySelector('span:nth-child(2)').textContent='SPIDER SENSE';
+    });
+    el.addEventListener('mouseleave',()=>{
+      if(hud) hud.querySelector('span:nth-child(2)').textContent='SPIDER SYSTEM';
+    });
+  });
+
+  /* Dramatic but short entrance: comic-panel flash on first load. */
+  const flash=document.createElement('div');
+  flash.style.cssText='position:fixed;inset:0;z-index:99991;pointer-events:none;background:radial-gradient(circle at 50% 48%,rgba(255,255,255,.18),transparent 18%),linear-gradient(90deg,rgba(239,35,60,.08),transparent 35%,rgba(46,168,255,.08));opacity:0;';
+  document.body.appendChild(flash);
+  flash.animate([{opacity:0},{opacity:.65,offset:.12},{opacity:.12,offset:.3},{opacity:0}],{duration:900,easing:'cubic-bezier(.16,1,.3,1)'}).finished.then(()=>flash.remove());
+
+  /* Make section transitions feel like comic panels. */
+  const sections=[...document.querySelectorAll('main > section')];
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('spider-panel-live');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:.18});
+  sections.forEach(s=>observer.observe(s));
+
+  /* Contact submit button gets a web-burst without changing form behavior. */
+  const submit=document.querySelector('#contactForm button[type="submit"]');
+  if(submit){
+    submit.addEventListener('click',e=>{
+      const r=submit.getBoundingClientRect();
+      for(let i=0;i<5;i++) setTimeout(()=>webSnap(r.left+r.width*(.18+.16*i),r.top+4),i*55);
+    });
+  }
 })();
 </script>
 
