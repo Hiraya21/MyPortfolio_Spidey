@@ -3002,7 +3002,35 @@ main > section::after{
   #spiderHUD .hud-dot,#mainHeader nav > a:first-child::before,main > section::after,#aboutPhotoTarget::before,#aboutPhotoTarget::after,#contactForm::after{animation:none !important}
 }
 
-    </style>
+    
+
+        /* Smooth rendering for frequently animated elements */
+        #spiderCursor, .edu-card-inner, .edu-node-web, .music-player, .project-slide { will-change: transform; }
+        #spiderCursor { left: 0 !important; top: 0 !important; }
+
+        /* Performance tuning: preserve the visual style without forcing the GPU to redraw the whole page continuously. */
+        .spider-education {
+            contain: layout paint style;
+            content-visibility: auto;
+            contain-intrinsic-size: 0 900px;
+        }
+        .education-web-canvas { contain: strict; }
+        .edu-card-inner { backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+        .edu-city-glow { filter: blur(55px); }
+        .edu-scanline { animation-duration: 14s; }
+        .edu-card-inner, .edu-node, .edu-node-web { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+        @media (prefers-reduced-motion: reduce) {
+            .edu-city-glow, .edu-scanline, .edu-title span, .edu-title-web i, .edu-node-web, .edu-card-inner::after, .edu-kicker-dot { animation: none !important; }
+            .edu-card { transition: opacity .35s ease !important; transform: none !important; }
+        }
+        @media (max-width: 768px) {
+            .edu-city-glow { opacity: .08; }
+            .edu-scanline { display: none; }
+            .edu-web-corner { opacity: .10; }
+            .edu-card-inner { backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+        }
+
+</style>
 
     <script>
 tailwind.config = {
@@ -3026,7 +3054,7 @@ tailwind.config = {
 };
 
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
 
 </head>
 
@@ -5467,8 +5495,7 @@ const menuBtn =
             spiderY += (spiderTargetY - spiderY) * .18;
 
             if (spiderCursor) {
-                spiderCursor.style.left = `${spiderX}px`;
-                spiderCursor.style.top = `${spiderY}px`;
+                spiderCursor.style.transform = `translate3d(${spiderX}px, ${spiderY}px, 0)`;
             }
 
             requestAnimationFrame(animateSpiderCursor);
@@ -5986,41 +6013,80 @@ if (heroSection) {
     });
 })();
 
-/* Spider-Man education interactions: mouse-reactive web + card tilt + web burst */
+/* Lightweight Spider-Man education interactions */
 (function(){
   const section=document.getElementById('education');
   const canvas=document.getElementById('educationWebCanvas');
   if(!section||!canvas)return;
-  const ctx=canvas.getContext('2d');
-  let w=0,h=0,dpr=1,mx=.5,my=.35,targetX=.5,targetY=.35,t=0;
+  const ctx=canvas.getContext('2d',{alpha:true,desynchronized:true});
+  let w=0,h=0,dpr=1,mx=.5,my=.35,targetX=.5,targetY=.35,t=0,raf=0,running=false,lastFrame=0;
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
   const nodes=[...section.querySelectorAll('.edu-card')];
-  function resize(){dpr=Math.min(window.devicePixelRatio||1,2);w=canvas.clientWidth;h=canvas.clientHeight;canvas.width=w*dpr;canvas.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);}
-  function drawWeb(cx,cy,r,alpha,rotation=0){
-    ctx.save();ctx.translate(cx,cy);ctx.rotate(rotation);ctx.strokeStyle=`rgba(255,255,255,${alpha})`;ctx.lineWidth=1;
-    for(let i=0;i<14;i++){const a=i*Math.PI*2/14;ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(Math.cos(a)*r,Math.sin(a)*r);ctx.stroke();}
-    for(let ring=1;ring<7;ring++){const rr=r*ring/7;ctx.beginPath();for(let i=0;i<=14;i++){const a=i*Math.PI*2/14;const wobble=1+Math.sin(a*3+ring*.8+t*.35)*.025;const x=Math.cos(a)*rr*wobble,y=Math.sin(a)*rr*wobble;i?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.stroke();}
+  function resize(){
+    dpr=Math.min(window.devicePixelRatio||1,1.5);
+    w=Math.max(1,canvas.clientWidth); h=Math.max(1,canvas.clientHeight);
+    canvas.width=Math.floor(w*dpr); canvas.height=Math.floor(h*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  function drawWeb(cx,cy,r,alpha,rotation){
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(rotation);ctx.strokeStyle=`rgba(255,255,255,${alpha})`;ctx.lineWidth=.8;
+    const rays=10;
+    for(let i=0;i<rays;i++){
+      const a=i*Math.PI*2/rays;
+      ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(Math.cos(a)*r,Math.sin(a)*r);ctx.stroke();
+    }
+    for(let ring=1;ring<5;ring++){
+      const rr=r*ring/5;ctx.beginPath();
+      for(let i=0;i<=rays;i++){
+        const a=i*Math.PI*2/rays;
+        const x=Math.cos(a)*rr,y=Math.sin(a)*rr;
+        i?ctx.lineTo(x,y):ctx.moveTo(x,y);
+      }
+      ctx.stroke();
+    }
     ctx.restore();
   }
-  function animate(){
-    t+=.016;mx+=(targetX-mx)*.035;my+=(targetY-my)*.035;ctx.clearRect(0,0,w,h);
-    drawWeb(w*mx,h*my,Math.min(w,h)*.28,.13,t*.06);
-    drawWeb(w*(1-mx*.12),h*(.22+my*.12),Math.min(w,h)*.18,.065,-t*.04);
-    requestAnimationFrame(animate);
+  function frame(now){
+    if(!running)return;
+    if(now-lastFrame<33){raf=requestAnimationFrame(frame);return;}
+    lastFrame=now;t+=.025;mx+=(targetX-mx)*.06;my+=(targetY-my)*.06;
+    ctx.clearRect(0,0,w,h);
+    if(!reduce.matches){
+      const r=Math.min(w,h)*.25;
+      drawWeb(w*mx,h*my,r,.10,t*.045);
+      drawWeb(w*(1-mx*.10),h*(.22+my*.10),r*.68,.045,-t*.03);
+    }
+    raf=requestAnimationFrame(frame);
   }
-  section.addEventListener('pointermove',e=>{const r=section.getBoundingClientRect();targetX=(e.clientX-r.left)/r.width;targetY=(e.clientY-r.top)/r.height;});
-  section.addEventListener('pointerleave',()=>{targetX=.5;targetY=.35;});
+  function start(){if(running)return;running=true;resize();raf=requestAnimationFrame(frame);}
+  function stop(){running=false;if(raf)cancelAnimationFrame(raf);raf=0;}
+  const observer=new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting){start();}
+    else{stop();}
+  },{rootMargin:'120px 0px'});
+  observer.observe(section);
+  section.addEventListener('pointermove',e=>{
+    if(!running)return;
+    const r=section.getBoundingClientRect();targetX=(e.clientX-r.left)/r.width;targetY=(e.clientY-r.top)/r.height;
+  },{passive:true});
+  section.addEventListener('pointerleave',()=>{targetX=.5;targetY=.35;},{passive:true});
   nodes.forEach(card=>{
+    const inner=card.querySelector('.edu-card-inner');
+    if(!inner)return;
     card.addEventListener('pointermove',e=>{
-      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+      if(reduce.matches)return;
       const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
-      card.querySelector('.edu-card-inner').style.transform=`translateY(-7px) perspective(900px) rotateX(${(-y*3).toFixed(2)}deg) rotateY(${(x*4).toFixed(2)}deg)`;
-    });
-    card.addEventListener('pointerleave',()=>card.querySelector('.edu-card-inner').style.transform='');
+      inner.style.transform=`translate3d(0,-5px,0) perspective(900px) rotateX(${(-y*2).toFixed(2)}deg) rotateY(${(x*3).toFixed(2)}deg)`;
+    },{passive:true});
+    card.addEventListener('pointerleave',()=>{inner.style.transform='';},{passive:true});
     card.addEventListener('pointerdown',e=>{
-      const r=card.getBoundingClientRect();const fx=document.createElement('span');fx.className='edu-click-web';fx.style.left=((e.clientX-r.left)/r.width*100)+'%';fx.style.top=((e.clientY-r.top)/r.height*100)+'%';card.querySelector('.edu-card-inner').appendChild(fx);setTimeout(()=>fx.remove(),800);
-    });
+      const fx=document.createElement('span');fx.className='edu-click-web';
+      const r=card.getBoundingClientRect();fx.style.left=((e.clientX-r.left)/r.width*100)+'%';fx.style.top=((e.clientY-r.top)/r.height*100)+'%';
+      inner.appendChild(fx);setTimeout(()=>fx.remove(),600);
+    },{passive:true});
   });
-  resize();window.addEventListener('resize',resize,{passive:true});animate();
+  let resizeTimer;
+  window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(running)resize();},150);},{passive:true});
 })();
 
 (function(){
