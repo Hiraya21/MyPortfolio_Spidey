@@ -3152,6 +3152,17 @@ main > section::after{
             .section-title { font-size: clamp(1.9rem, 8vw, 2.6rem); line-height: 1.1; }
             #about .grid { gap: 36px; }
             #aboutPhotoTarget { width: min(64vw, 256px); height: min(64vw, 256px); }
+            #about::after {
+                top: 34%;
+                right: auto;
+                left: 50%;
+                margin-left: -180px;
+            }
+            #aboutPhotoTarget::after {
+                inset: -90px;
+                z-index: 1;
+                opacity: .9;
+            }
 
             .skills-heading-row { gap: 22px; }
             .skills-title { font-size: clamp(2.7rem, 14vw, 4rem); }
