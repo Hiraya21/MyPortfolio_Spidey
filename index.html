@@ -3056,6 +3056,242 @@ tailwind.config = {
     </script>
     <script src="https://cdn.tailwindcss.com" defer></script>
 
+
+<style id="mobile-responsive-final-fix">
+/* MOBILE-FIRST RESPONSIVE FIX
+   Keeps the desktop design intact while making the portfolio comfortable on phones. */
+html, body { max-width: 100%; overflow-x: hidden; }
+img, svg, canvas { max-width: 100%; }
+button, a { -webkit-tap-highlight-color: transparent; }
+
+@media (max-width: 767px) {
+    /* Header / navigation */
+    #mainHeader { background: rgba(2,6,23,.94) !important; backdrop-filter: blur(12px) !important; }
+    #mainHeader nav {
+        min-height: 58px;
+        padding: 11px 14px !important;
+        gap: 10px;
+    }
+    #mainHeader nav > a {
+        min-width: 0;
+        max-width: calc(100vw - 74px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 12px !important;
+        line-height: 1.15;
+    }
+    #menuBtn {
+        flex: 0 0 auto;
+        width: 42px;
+        height: 42px;
+        padding: 8px !important;
+        display: grid;
+        place-items: center;
+    }
+    #mobileMenu {
+        max-height: calc(100vh - 58px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        padding-bottom: 14px !important;
+    }
+    #mobileMenu a { min-height: 44px; display: flex; align-items: center; }
+
+    /* Prevent desktop 3D effects from creating horizontal overflow or jank on touch screens. */
+    .cool-card, .profile-card, .music-player, .project-slide, .edu-card-inner {
+        -webkit-transform-style: flat !important;
+        transform-style: flat !important;
+    }
+    .cool-card, .profile-card, .project-slide, .edu-card-inner { will-change: auto !important; }
+
+    /* Education section */
+    .spider-education {
+        width: 100%;
+        min-width: 0;
+        min-height: 0 !important;
+        overflow: hidden !important;
+    }
+    .spider-education > .relative {
+        width: 100%;
+        max-width: 100%;
+        padding: 72px 14px 70px !important;
+    }
+    .spider-education .edu-heading {
+        width: 100%;
+        margin-bottom: 42px !important;
+    }
+    .spider-education .edu-kicker {
+        gap: 7px;
+        font-size: 7px;
+        letter-spacing: .18em;
+        line-height: 1.5;
+        flex-wrap: wrap;
+    }
+    .spider-education .edu-title {
+        margin-top: 9px;
+        font-size: clamp(2rem, 11.5vw, 3.2rem) !important;
+        line-height: .96;
+        letter-spacing: -.055em;
+        overflow-wrap: anywhere;
+    }
+    .spider-education .edu-subtitle {
+        max-width: 290px;
+        margin: 12px auto 0;
+        font-size: 10px;
+        line-height: 1.55;
+    }
+    .spider-education .edu-title-web { width: min(210px, 70vw); margin-top: 14px; }
+
+    /* Single-column timeline: line and nodes never sit on top of the cards. */
+    .spider-education .edu-timeline-wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 42px !important;
+        padding-right: 0 !important;
+        margin: 0 !important;
+    }
+    .spider-education .edu-timeline-line {
+        left: 11px !important;
+        top: 5px !important;
+        bottom: 5px !important;
+        width: 2px !important;
+    }
+    .spider-education .edu-energy-line { left: 7px !important; width: 10px; }
+    .spider-education .edu-card {
+        width: 100% !important;
+        margin: 0 0 18px !important;
+        transform: none !important;
+        opacity: 1;
+    }
+    .spider-education .edu-card.visible { transform: none !important; }
+    .spider-education .edu-node-shell {
+        left: -42px !important;
+        top: 17px !important;
+        width: 34px !important;
+        height: 34px !important;
+        z-index: 8;
+    }
+    .spider-education .edu-node {
+        width: 34px !important;
+        height: 34px !important;
+        border-width: 2px !important;
+    }
+    .spider-education .edu-node span { font-size: 6px; }
+    .spider-education .edu-node-web { inset: -7px !important; }
+
+    .spider-education .edu-card-inner {
+        width: 100% !important;
+        min-height: 0 !important;
+        padding: 17px 15px 13px !important;
+        border-radius: 15px !important;
+        background: linear-gradient(135deg, rgba(9,17,33,.96), rgba(4,8,18,.92));
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,.32) !important;
+    }
+    .spider-education .edu-card:hover .edu-card-inner,
+    .spider-education .edu-card-inner {
+        transform: none !important;
+    }
+    .spider-education .edu-card-top {
+        width: 100%;
+        align-items: flex-start;
+        gap: 7px 10px;
+    }
+    .spider-education .edu-year { font-size: 11px; letter-spacing: .14em; }
+    .spider-education .edu-status {
+        max-width: 58%;
+        white-space: normal !important;
+        text-align: right;
+        font-size: 6px !important;
+        line-height: 1.35;
+        letter-spacing: .12em !important;
+    }
+    .spider-education .edu-content-grid {
+        display: block !important;
+        width: 100%;
+        margin-top: 2px;
+    }
+    .spider-education .edu-side-icon { display: none !important; }
+    .spider-education .edu-label {
+        margin-top: 12px;
+        font-size: 6px;
+        letter-spacing: .15em;
+    }
+    .spider-education .edu-content-grid h3 {
+        margin-top: 5px;
+        font-size: clamp(1.15rem, 6vw, 1.45rem) !important;
+        line-height: 1.15;
+        overflow-wrap: anywhere;
+    }
+    .spider-education .edu-content-grid p {
+        margin-top: 8px;
+        font-size: 11px !important;
+        line-height: 1.65 !important;
+        max-width: none;
+    }
+    .spider-education .edu-card-footer {
+        margin-top: 12px;
+        padding-top: 9px;
+        gap: 8px;
+        font-size: 5.5px;
+        line-height: 1.35;
+        letter-spacing: .1em;
+        flex-wrap: wrap;
+    }
+    .spider-education .edu-card-footer span:last-child { margin-left: auto; }
+
+    .spider-education .edu-bottom-hud {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 22px !important;
+        padding: 12px !important;
+        border-radius: 14px !important;
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+        text-align: left;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    .spider-education .edu-bottom-hud > div:last-child { text-align: left !important; }
+    .spider-education .edu-hud-web { display: none !important; }
+    .spider-education .edu-bottom-hud strong { font-size: 7px; }
+
+    /* Decorative layers stay behind content and are lighter on phones. */
+    .spider-education .education-web-canvas { display: none !important; }
+    .spider-education .edu-scanline { display: none !important; }
+    .spider-education .edu-city-glow {
+        width: 220px;
+        height: 220px;
+        filter: blur(55px);
+        opacity: .07;
+        animation: none;
+    }
+    .spider-education .edu-web-corner {
+        width: 150px !important;
+        height: 150px !important;
+        opacity: .06 !important;
+    }
+}
+
+@media (max-width: 380px) {
+    #mainHeader nav > a { font-size: 10px !important; max-width: calc(100vw - 68px); }
+    .spider-education > .relative { padding-left: 11px !important; padding-right: 11px !important; }
+    .spider-education .edu-timeline-wrap { padding-left: 38px !important; }
+    .spider-education .edu-timeline-line { left: 9px !important; }
+    .spider-education .edu-energy-line { left: 5px !important; }
+    .spider-education .edu-node-shell { left: -38px !important; }
+    .spider-education .edu-card-inner { padding-left: 13px !important; padding-right: 13px !important; }
+    .spider-education .edu-status { max-width: 55%; font-size: 5.5px !important; }
+    .spider-education .edu-content-grid p { font-size: 10.5px !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .spider-education .edu-card { transition: none !important; }
+}
+</style>
 </head>
 
 <body class="bg-slate-950 text-slate-100 antialiased">
