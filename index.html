@@ -1899,8 +1899,8 @@ body::before{content:"";position:fixed;inset:0;z-index:9997;pointer-events:none;
         left: 50% !important;
         right: auto !important;
         bottom: 12px !important;
-        width: min(270px, calc(100vw - 32px)) !important;
-        max-width: 270px !important;
+        width: min(238px, calc(100vw - 28px)) !important;
+        max-width: 238px !important;
         min-width: 0 !important;
         padding: 7px 8px !important;
         gap: 8px !important;
@@ -1913,11 +1913,11 @@ body::before{content:"";position:fixed;inset:0;z-index:9997;pointer-events:none;
     }
 
     .music-button {
-        width: 40px !important;
-        height: 40px !important;
-        min-width: 40px !important;
-        border-radius: 13px !important;
-        font-size: 14px !important;
+        width: 34px !important;
+        height: 34px !important;
+        min-width: 34px !important;
+        border-radius: 11px !important;
+        font-size: 12px !important;
     }
 
     .music-info {
@@ -1933,8 +1933,8 @@ body::before{content:"";position:fixed;inset:0;z-index:9997;pointer-events:none;
     }
 
     .music-title {
-        max-width: 155px !important;
-        font-size: 10px !important;
+        max-width: 132px !important;
+        font-size: 9px !important;
         gap: 4px !important;
         letter-spacing: .03em !important;
     }
@@ -1946,7 +1946,7 @@ body::before{content:"";position:fixed;inset:0;z-index:9997;pointer-events:none;
         white-space: nowrap !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
-        max-width: 175px !important;
+        max-width: 145px !important;
     }
 
     .music-bars {
@@ -3139,9 +3139,10 @@ main > section::after{
                 height: 360px;
             }
             .spider-badge {
-                top: 78px;
-                right: 12px;
+                top: 12px;
+                right: 16px;
                 max-width: calc(100% - 24px);
+                padding: 6px 9px;
                 font-size: 8px;
                 letter-spacing: .1em;
             }
@@ -3155,8 +3156,10 @@ main > section::after{
             #about::after {
                 top: 34%;
                 right: auto;
-                left: 50%;
-                margin-left: -180px;
+                left: calc(50% - 180px);
+                margin-left: 0;
+                width: 360px;
+                height: 360px;
             }
             #aboutPhotoTarget::after {
                 inset: -90px;
