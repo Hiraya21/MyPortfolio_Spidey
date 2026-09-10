@@ -3630,15 +3630,152 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 </style>
 
+
+<style id="mobile-header-status-bottom-menu">
+@media (max-width: 767px) {
+    body {
+        padding-bottom: calc(86px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+
+    /* SYSTEM ONLINE: compact, inside the header */
+    #spiderHUD {
+        position: absolute !important;
+        top: 10px !important;
+        right: 58px !important;
+        left: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        width: auto !important;
+        max-width: calc(100vw - 125px) !important;
+        padding: 5px 8px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 5px !important;
+        border-radius: 999px !important;
+        font-size: 5px !important;
+        letter-spacing: .1em !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        pointer-events: none !important;
+        z-index: 20 !important;
+        backdrop-filter: blur(7px) !important;
+        -webkit-backdrop-filter: blur(7px) !important;
+    }
+    #spiderHUD .hud-dot { width: 5px !important; height: 5px !important; flex: 0 0 5px; }
+    #spiderHUD .hud-line { width: 12px !important; flex: 0 0 12px; }
+
+    /* Bottom navigation MENU BUTTON */
+    .mobile-bottom-menu-btn {
+        position: fixed !important;
+        left: 50% !important;
+        bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+        transform: translateX(-50%) !important;
+        width: 58px !important;
+        height: 58px !important;
+        display: grid !important;
+        place-content: center !important;
+        gap: 5px !important;
+        padding: 0 !important;
+        border: 1px solid rgba(96,165,250,.35) !important;
+        border-radius: 18px !important;
+        background: linear-gradient(145deg, rgba(12,19,39,.98), rgba(3,7,20,.98)) !important;
+        box-shadow: 0 8px 28px rgba(0,0,0,.45), 0 0 24px rgba(37,99,235,.12), inset 0 0 18px rgba(239,68,68,.05) !important;
+        z-index: 100000 !important;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .mobile-bottom-menu-btn::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        border-top: 1px solid rgba(239,68,68,.7);
+        pointer-events: none;
+    }
+    .mobile-bottom-menu-btn span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        border-radius: 999px;
+        background: #e2e8f0;
+        transition: transform .2s ease, opacity .2s ease;
+    }
+    .mobile-bottom-menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mobile-bottom-menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .mobile-bottom-menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Menu opens upward from the bottom button, avoiding the header and music control. */
+    #mobileMenu {
+        position: fixed !important;
+        left: 12px !important;
+        right: 12px !important;
+        bottom: calc(84px + env(safe-area-inset-bottom, 0px)) !important;
+        top: auto !important;
+        max-height: min(58vh, 430px) !important;
+        margin: 0 !important;
+        padding: 10px !important;
+        border: 1px solid rgba(96,165,250,.22) !important;
+        border-radius: 18px !important;
+        background: rgba(2,6,23,.97) !important;
+        box-shadow: 0 14px 35px rgba(0,0,0,.5), 0 0 25px rgba(37,99,235,.08) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        z-index: 99999 !important;
+        overflow-y: auto !important;
+    }
+    #mobileMenu .flex { padding-top: 0 !important; }
+    #mobileMenu a {
+        min-height: 43px !important;
+        padding: 10px 14px !important;
+        border-radius: 11px !important;
+    }
+
+    /* Music becomes ONLY a floating circular button on phones. */
+    .music-player {
+        position: fixed !important;
+        right: 14px !important;
+        left: auto !important;
+        bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+        transform: none !important;
+        width: 54px !important;
+        height: 54px !important;
+        min-height: 54px !important;
+        max-width: 54px !important;
+        padding: 4px !important;
+        display: grid !important;
+        place-items: center !important;
+        gap: 0 !important;
+        border-radius: 50% !important;
+        z-index: 100001 !important;
+    }
+    .music-player:hover { transform: none !important; }
+    .music-player .music-orbit { width: 46px !important; height: 46px !important; left: 50% !important; top: 50% !important; transform: translate(-50%,-50%) !important; }
+    .music-player .music-web,
+    .music-player .music-status,
+    .music-player .music-info,
+    .music-player .music-next-button { display: none !important; }
+    .music-player .music-button {
+        width: 42px !important;
+        height: 42px !important;
+        min-width: 42px !important;
+        border-radius: 50% !important;
+        font-size: 13px !important;
+        z-index: 3 !important;
+    }
+}
+
+@media (max-width: 360px) {
+    #spiderHUD { right: 53px !important; max-width: 120px !important; }
+    .mobile-bottom-menu-btn { width: 54px !important; height: 54px !important; border-radius: 17px !important; }
+    .music-player { width: 50px !important; height: 50px !important; min-height: 50px !important; max-width: 50px !important; right: 10px !important; }
+    .music-player .music-button { width: 38px !important; height: 38px !important; min-width: 38px !important; }
+}
+</style>
+
 </head>
 
 <body class="bg-slate-950 text-slate-100 antialiased">
 
     <div id="scrollProgress"></div>
-
-    <div id="spiderHUD" aria-hidden="true">
-  <span class="hud-dot"></span><span>SPIDER SYSTEM</span><span class="hud-line"></span><span>ONLINE</span>
-</div>
 
     <audio
         id="backgroundMusic"
@@ -3793,6 +3930,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
         </nav>
 
+        <div id="spiderHUD" aria-hidden="true">
+  <span class="hud-dot"></span><span>SPIDER SYSTEM</span><span class="hud-line"></span><span>ONLINE</span>
+</div>
+
         <div
             id="mobileMenu"
             class="hidden border-t border-white/10 bg-slate-950/95 px-5 pb-5 md:hidden">
@@ -3839,14 +3980,16 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
         </div>
 
-        <div class="mobile-bottom-nav" id="mobileBottomNav" aria-label="Mobile navigation">
-            <a href="#home" class="mobile-bottom-link active"><span>⌂</span><small>Home</small></a>
-            <a href="#about" class="mobile-bottom-link"><span>◎</span><small>About</small></a>
-            <a href="#skills" class="mobile-bottom-link"><span>✦</span><small>Skills</small></a>
-            <a href="#education" class="mobile-bottom-link"><span>▣</span><small>Education</small></a>
-            <a href="#projects" class="mobile-bottom-link"><span>◈</span><small>Projects</small></a>
-            <a href="#contact" class="mobile-bottom-link"><span>✉</span><small>Contact</small></a>
-        </div>
+        <button
+            id="mobileBottomMenuBtn"
+            class="mobile-bottom-menu-btn"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
     </header>
 
