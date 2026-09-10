@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -12,34 +12,8 @@
 
     <title>Gian Carlo M. Magat | Student Portfolio</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: [
-                            "Inter",
-                            "ui-sans-serif",
-                            "system-ui",
-                            "sans-serif"
-                        ]
-                    },
-
-                    boxShadow: {
-                        glow: "0 0 40px rgba(99,102,241,.20)",
-                        redGlow: "0 0 40px rgba(239,68,68,.25)",
-                        blueGlow: "0 0 40px rgba(59,130,246,.25)"
-                    }
-                }
-            }
-        };
-    </script>
-
     <style>
-
-        * {
+* {
             box-sizing: border-box;
         }
 
@@ -1920,9 +1894,6 @@ body::before{content:"";position:fixed;inset:0;z-index:9997;pointer-events:none;
 @keyframes ultraHit{0%{opacity:1;transform:translate(-50%,-50%) scale(.2)}65%{opacity:.75}100%{opacity:0;transform:translate(-50%,-50%) scale(8);border-width:1px}}
 @media(max-width:768px){.ultra-scan,.ultra-vignette{display:none}.about-photo-web-canvas{inset:-180px;width:calc(100% + 360px);height:calc(100% + 360px)}}
 
-    </style>
-
-<style id="mobile-music-responsive-fix">
 @media (max-width: 640px) {
     .music-player {
         left: 50% !important;
@@ -2014,10 +1985,7 @@ body::before{content:"";position:fixed;inset:0;z-index:9997;pointer-events:none;
         font-size: 6px !important;
     }
 }
-</style>
 
-
-<style id="projects-ultra-style">
 .projects-ultra{isolation:isolate;background:radial-gradient(circle at 15% 45%,rgba(239,68,68,.10),transparent 27%),radial-gradient(circle at 85% 50%,rgba(37,99,235,.12),transparent 30%);}
 .projects-noise{position:absolute;inset:0;opacity:.22;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.18) .7px,transparent .7px);background-size:7px 7px;mask-image:linear-gradient(to bottom,transparent,black 18%,black 82%,transparent);}
 .projects-orbit{position:absolute;border:1px solid rgba(59,130,246,.18);border-radius:50%;pointer-events:none;filter:drop-shadow(0 0 16px rgba(37,99,235,.2));}
@@ -2037,9 +2005,7 @@ body::before{content:"";position:fixed;inset:0;z-index:9997;pointer-events:none;
 @media (max-width:900px){.project-slide{flex-basis:calc((100% - 28px)/2)}.project-visual{height:210px}.projects-carousel{padding-left:38px;padding-right:38px}}
 @media (max-width:640px){.projects-title-row{align-items:flex-start}.projects-counter-box{min-width:92px;padding:8px}.projects-counter-box strong{font-size:21px}.projects-counter-box b{font-size:6px}.projects-subtitle{font-size:9px}.projects-filter-row{justify-content:flex-start;overflow-x:auto;padding-bottom:3px}.projects-filters{width:max-content}.projects-filter{min-width:auto;padding:7px 13px!important}.projects-carousel{padding:8px 34px 16px}.projects-track{gap:14px}.project-slide{flex-basis:100%;border-radius:17px}.project-visual{height:220px}.project-icon-wrap{width:100px;height:100px;font-size:58px}.project-body{padding:16px}.project-body h3{font-size:18px}.project-body p{font-size:10px;min-height:auto}.project-arrow{width:34px;height:58px;font-size:32px;border-radius:11px}.project-arrow-left{left:0}.project-arrow-right{right:0}.projects-bottom-ui{gap:10px}.projects-progress{width:85px}.projects-hint{display:none}.projects-orbit-one{right:-470px}.projects-orbit-two{left:-400px}}
 @media (prefers-reduced-motion:reduce){.projects-orbit,.project-icon-wrap,.project-glow,.projects-counter-box:before{animation:none}.project-slide,.projects-track{transition:none}}
-</style>
 
-<style id="projects-loop-carousel-style">
 .projects-carousel-shell{
     position:relative;
     height:520px;
@@ -2281,10 +2247,7 @@ body::before{content:"";position:fixed;inset:0;z-index:9997;pointer-events:none;
         transition:none!important;
     }
 }
-</style>
 
-
-<style id="projects-realistic-3d-upgrade">
 .projects-carousel-shell{
     perspective:2200px!important;
     transform-style:preserve-3d;
@@ -2533,9 +2496,6 @@ body::before{content:"";position:fixed;inset:0;z-index:9997;pointer-events:none;
 @media (prefers-reduced-motion:reduce){
     .project-visual:after{animation:none!important}
 }
-</style>
-
-<style>
 
 /* =========================================================
    SPIDER-MAN EDUCATION / ACADEMIC TIMELINE UPGRADE
@@ -2623,8 +2583,157 @@ body::before{content:"";position:fixed;inset:0;z-index:9997;pointer-events:none;
 .edu-click-web::before,.edu-click-web::after{content:"";position:absolute;left:50%;top:50%;width:120px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.9),transparent);transform-origin:left center;}
 .edu-click-web::before{transform:rotate(0deg)}.edu-click-web::after{transform:rotate(90deg)}
 @keyframes eduClickWeb{0%{opacity:1;transform:translate(-50%,-50%) scale(.2)}45%{opacity:.9}100%{opacity:0;transform:translate(-50%,-50%) scale(7)}}
-</style>
-<style id="spider-skills-upgrade">
+
+
+/* EDUCATION FINAL POLISH — layered safely, no layout collisions */
+.spider-education{
+    position:relative;
+    overflow:clip;
+    min-height:900px;
+    isolation:isolate;
+}
+.spider-education .education-web-canvas,
+.spider-education .edu-city-glow,
+.spider-education .edu-web-corner,
+.spider-education .edu-scanline{
+    pointer-events:none;
+}
+.spider-education .education-web-canvas{z-index:0;opacity:.28}
+.spider-education .edu-city-glow{z-index:0}
+.spider-education .edu-web-corner{z-index:0;opacity:.10}
+.spider-education > .relative{
+    position:relative;
+    z-index:5;
+}
+.spider-education .edu-heading{
+    z-index:6;
+    margin-bottom:58px;
+}
+.spider-education .edu-timeline-wrap{
+    width:min(900px,100%);
+    padding-left:78px;
+    z-index:6;
+}
+.spider-education .edu-timeline-line{
+    left:25px!important;
+    z-index:1;
+    width:2px!important;
+}
+.spider-education .edu-energy-line{
+    left:21px;
+    z-index:2;
+}
+.spider-education .edu-card{
+    width:100%;
+    margin-bottom:26px!important;
+    position:relative!important;
+    z-index:3;
+}
+.spider-education .edu-card-inner{
+    width:100%;
+    min-height:198px;
+    padding:24px 26px 16px;
+    transform-style:preserve-3d;
+}
+.spider-education .edu-card-inner > *{
+    position:relative;
+    z-index:3;
+}
+.spider-education .edu-content-grid{
+    grid-template-columns:minmax(0,1fr) 70px;
+    gap:24px;
+}
+.spider-education .edu-side-icon{
+    width:62px;
+    height:62px;
+}
+.spider-education .edu-card:hover{
+    z-index:10;
+}
+.spider-education .edu-card:hover .edu-card-inner{
+    transform:translateY(-6px) perspective(900px) rotateX(1deg);
+}
+.spider-education .edu-bottom-hud{
+    position:relative;
+    z-index:7;
+    width:min(900px,100%);
+    margin-top:32px;
+}
+
+/* Clean responsive breakpoint: decorative layers stay behind content. */
+@media(max-width:700px){
+    .spider-education{
+        min-height:0;
+        overflow:clip;
+    }
+    .spider-education .edu-heading{
+        margin-bottom:48px;
+    }
+    .spider-education .edu-timeline-wrap{
+        width:100%;
+        padding-left:50px;
+    }
+    .spider-education .edu-timeline-line{left:15px!important}
+    .spider-education .edu-energy-line{left:10px}
+    .spider-education .edu-card{
+        margin-bottom:20px!important;
+        z-index:3;
+    }
+    .spider-education .edu-card-inner{
+        min-height:0;
+        padding:19px 17px 14px;
+        border-radius:17px;
+        transform:none!important;
+    }
+    .spider-education .edu-card:hover .edu-card-inner{
+        transform:translateY(-4px)!important;
+    }
+    .spider-education .edu-card-top{
+        flex-wrap:wrap;
+        align-items:flex-start;
+    }
+    .spider-education .edu-status{
+        white-space:normal;
+        line-height:1.4;
+    }
+    .spider-education .edu-content-grid{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+    .spider-education .edu-side-icon{display:none}
+    .spider-education .edu-content-grid h3{
+        font-size:clamp(1.25rem,6vw,1.55rem);
+        line-height:1.12;
+    }
+    .spider-education .edu-content-grid p{
+        font-size:12.5px;
+        line-height:1.65;
+    }
+    .spider-education .edu-bottom-hud{
+        grid-template-columns:1fr 70px 1fr;
+        width:100%;
+        margin-top:26px;
+        border-radius:18px;
+    }
+    .spider-education .edu-web-corner{
+        width:180px;
+        height:180px;
+    }
+}
+@media(max-width:430px){
+    .spider-education .edu-timeline-wrap{padding-left:44px}
+    .spider-education .edu-timeline-line{left:12px!important}
+    .spider-education .edu-energy-line{left:8px}
+    .spider-education .edu-node-shell{left:-44px}
+    .spider-education .edu-card-inner{padding-left:14px;padding-right:14px}
+    .spider-education .edu-bottom-hud{
+        grid-template-columns:1fr;
+        gap:9px;
+    }
+    .spider-education .edu-bottom-hud>div:last-child{text-align:left}
+    .spider-education .edu-hud-web{display:none}
+}
+
 #skills.spider-skills-section{position:relative;background:radial-gradient(circle at 14% 18%,rgba(239,68,68,.10),transparent 28%),radial-gradient(circle at 88% 72%,rgba(37,99,235,.12),transparent 30%),linear-gradient(180deg,#020611 0%,#050817 52%,#02040d 100%);min-height:720px;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);isolation:isolate}
 .skills-web-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.9}
 .skills-city-glow{position:absolute;width:42vw;height:42vw;border-radius:50%;filter:blur(80px);pointer-events:none;opacity:.18;animation:skillsGlow 7s ease-in-out infinite alternate}.skills-city-red{left:-22vw;top:12%;background:#ef233c}.skills-city-blue{right:-22vw;bottom:-15%;background:#1d4ed8;animation-delay:-3s}
@@ -2639,9 +2748,6 @@ body::before{content:"";position:fixed;inset:0;z-index:9997;pointer-events:none;
 @media(max-width:900px){.skills-heading-row{align-items:flex-start;flex-direction:column}.skills-hud{width:100%;max-width:250px}.skills-matrix{grid-template-columns:1fr}.skills-title{font-size:clamp(3rem,14vw,5rem)}}
 @media(max-width:640px){#skills.spider-skills-section{min-height:auto}.spider-skill-card{padding:18px 17px;min-height:165px;border-radius:16px}.skill-name-row{grid-template-columns:32px 1fr auto;gap:9px;margin:20px 0 15px}.skill-spider-mark{width:30px;height:30px}.skill-name-row h3{font-size:1rem}.skill-name-row>strong{font-size:1.3rem}.skills-subtitle{font-size:.92rem}.skills-title-line{width:190px}.skills-footer-hud{flex-wrap:wrap}.skills-footer-hud i{display:none}.skills-grid-floor{opacity:.1}}
 @media(prefers-reduced-motion:reduce){.skills-city-glow,.skills-scanline,.skill-card-sweep,.skill-spider-mark{animation:none}.spider-skill-card{transition:none}.skill-meter-fill{transition:none}}
-</style>
-
-<style>
 
 /* =========================================================
    SPIDER-VERSE UI OVERHAUL — visual layer only
@@ -2896,7 +3002,31 @@ main > section::after{
   #spiderHUD .hud-dot,#mainHeader nav > a:first-child::before,main > section::after,#aboutPhotoTarget::before,#aboutPhotoTarget::after,#contactForm::after{animation:none !important}
 }
 
-</style>
+    </style>
+
+    <script>
+tailwind.config = {
+    theme: {
+        extend: {
+            fontFamily: {
+                sans: [
+                    "Inter",
+                    "ui-sans-serif",
+                    "system-ui",
+                    "sans-serif"
+                ]
+            },
+            boxShadow: {
+                glow: "0 0 40px rgba(99,102,241,.20)",
+                redGlow: "0 0 40px rgba(239,68,68,.25)",
+                blueGlow: "0 0 40px rgba(59,130,246,.25)"
+            }
+        }
+    }
+};
+
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 
@@ -3978,8 +4108,7 @@ main > section::after{
     </footer>
 
     <script>
-
-        const menuBtn =
+const menuBtn =
             document.getElementById("menuBtn");
 
         const mobileMenu =
@@ -5631,11 +5760,6 @@ if (heroSection) {
     if(photo){photo.addEventListener('mouseenter',e=>{const r=photo.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,22)});}
 })();
 
-    </script>
-
-
-
-<script id="projects-ultra-script">
 (function(){
     const section=document.getElementById('projects');
     if(!section) return;
@@ -5800,10 +5924,7 @@ if (heroSection) {
 
     render();
 })();
-</script>
 
-
-<script id="projects-realistic-3d-js">
 (function(){
     const root=document.querySelector('.projects-carousel-shell');
     if(!root) return;
@@ -5864,10 +5985,7 @@ if (heroSection) {
         slide.style.setProperty('--card-index',i);
     });
 })();
-</script>
 
-
-<script>
 /* Spider-Man education interactions: mouse-reactive web + card tilt + web burst */
 (function(){
   const section=document.getElementById('education');
@@ -5904,10 +6022,7 @@ if (heroSection) {
   });
   resize();window.addEventListener('resize',resize,{passive:true});animate();
 })();
-</script>
 
-
-<script id="spider-skills-upgrade-js">
 (function(){
  const section=document.getElementById('skills');
  const cards=[...document.querySelectorAll('.spider-skill-card')];
@@ -5925,10 +6040,7 @@ if (heroSection) {
  section.addEventListener('mousemove',e=>{const r=section.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top});section.addEventListener('mouseleave',()=>mouse={x:-9999,y:-9999});window.addEventListener('resize',resize,{passive:true});resize();draw();
  const st=document.createElement('style');st.textContent='@keyframes skillBurst{to{width:260px;height:260px;opacity:0;border-width:2px;box-shadow:0 0 45px #ef4444,0 0 90px #3b82f6}}';document.head.appendChild(st);
 })();
-</script>
 
-
-<script id="spider-verse-ui-upgrade">
 (function(){
   const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduce) return;
@@ -6005,8 +6117,8 @@ if (heroSection) {
     });
   }
 })();
-</script>
 
+    </script>
 </body>
 
 </html>
