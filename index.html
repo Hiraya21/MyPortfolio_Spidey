@@ -3039,6 +3039,18 @@ main > section::after{
                 overflow-x: clip;
             }
 
+            #spiderHUD {
+                display: flex;
+                top: 78px;
+                right: 16px;
+                bottom: auto;
+                left: auto;
+                transform: none;
+                padding: 7px 10px;
+                gap: 7px;
+                font-size: 8px;
+            }
+
             #mobileMenu {
                 position: fixed;
                 top: 68px;
@@ -3204,7 +3216,11 @@ main > section::after{
                 width: calc(100% - 20px);
                 padding-right: 8px;
             }
-            #spiderHUD { display: none; }
+            #spiderHUD {
+                display: flex;
+                top: 78px;
+                right: 12px;
+            }
             #home > .relative { padding-top: 44px; }
             #home .profile-card { height: 340px; }
             .music-artist { max-width: 145px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
