@@ -5683,7 +5683,9 @@ const menuBtn =
             requestAnimationFrame(animateSpiderCursor);
         }
 
-        animateSpiderCursor();
+        if (spiderCursor && !window.matchMedia("(pointer: coarse)").matches) {
+            animateSpiderCursor();
+        }
 
         document.addEventListener("mousemove", event => {
             spiderTargetX = event.clientX;
@@ -5789,6 +5791,7 @@ if (heroSection) {
 
         function drawAboutPhotoWeb(time) {
             if (!aboutPhotoWebCtx || !aboutPhotoTarget || !aboutPhotoWebCanvas) return;
+            if (!aboutPhotoWebActive) return;
 
             const rect = aboutPhotoTarget.getBoundingClientRect();
             const pad = 360;
@@ -5913,6 +5916,7 @@ if (heroSection) {
                 aboutPhotoWebActive = true;
                 aboutPhotoWebStarted = performance.now();
                 aboutPhotoTarget.classList.add("web-hover");
+                requestAnimationFrame(drawAboutPhotoWeb);
             });
 
             aboutPhotoTarget.addEventListener("mouseleave", () => {
